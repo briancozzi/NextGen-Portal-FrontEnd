@@ -7,7 +7,7 @@ const Topbar = () => {
   return (
     <Flex width={'100%'} px={'36px'} py={'20px'} justify={'between'} align={'center'} gap={'3'}>
       <Flex gap={'2'}>
-        <Text weight={'medium'} size={'6'}>
+        <Text weight={'bold'} size={'6'}>
           {'Admin Center'}
         </Text>
         <Flex align={'center'}>
