@@ -1,11 +1,10 @@
-import { Flex, Text } from '@radix-ui/themes';
+import { Flex } from '@radix-ui/themes';
+import PageHeader from '../components/PageHeader';
 
 const DataManagementPage = () => {
   return (
-    <Flex p={'3'} width={'100%'} height={'100%'}>
-      <Text size={'6'} weight={'medium'}>
-        {'Data Management Page'}
-      </Text>
+    <Flex p={'3'} width={'100%'} height={'100%'} direction={'column'}>
+      <PageHeader>Data Management Page</PageHeader>
     </Flex>
   );
 };

@@ -1,5 +1,5 @@
 import { Box, Flex, Text } from '@radix-ui/themes';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import IconArrowCircle from '../../../icons/IconArrowCircle';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ export interface SidebarMenu {
   path?: string;
 }
 
-const MenuItem = ({ menuItem }: Props) => {
+const SidebarItem = ({ menuItem }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isActive =
@@ -25,9 +25,7 @@ const MenuItem = ({ menuItem }: Props) => {
 
   const [isOpen, setIsOpen] = useState(isActive);
   const toggleOpen = () => setIsOpen((prevState) => !prevState);
-  const height = menuItem?.children?.length ? `${menuItem?.children?.length * 42}px` : 'auto';
-
-  useEffect(() => console.log(menuItem.label, { isOpen }), []);
+  const height = menuItem?.children?.length ? `${menuItem?.children?.length * 40}px` : 'auto';
 
   return (
     <Flex direction={'column'}>
@@ -38,25 +36,27 @@ const MenuItem = ({ menuItem }: Props) => {
         py={'9px'}
         style={{
           cursor: 'pointer',
-          borderRight: isActive ? '4px red solid' : 'unset',
+          borderRight: `4px ${isActive ? 'var(--brand-color)' : 'transparent'} solid`,
           backgroundColor: isActive ? '#FFF' : 'unset',
         }}
         onClick={() => (menuItem?.path ? navigate(menuItem.path) : toggleOpen())}
+        justify={'start'}
       >
-        {menuItem.icon}
-        <Text size={'2'}>{menuItem.label}</Text>
-        {menuItem.children && (
-          <Box
-            style={{
-              transform: isOpen ? 'rotate(0deg)' : 'rotate(180deg)',
-              transformOrigin: 'center',
-              transition: 'ease-in all .2s',
-            }}
-            height={'24px'}
-          >
-            <IconArrowCircle />
-          </Box>
-        )}
+        <Flex width={'24px'}>{menuItem.icon}</Flex>
+        <Flex justify={'start'} width={'calc(100% - 48px)'} align={'center'}>
+          <Text size={'2'}>{menuItem.label}</Text>
+        </Flex>
+        <Box
+          style={{
+            transform: isOpen ? 'rotate(0deg)' : 'rotate(180deg)',
+            transformOrigin: 'center',
+            transition: 'ease-in all .2s',
+          }}
+          height={'24px'}
+          width={'24px'}
+        >
+          {menuItem.children && <IconArrowCircle />}
+        </Box>
       </Flex>
       <Flex
         height={isOpen ? height : '0px'}
@@ -64,15 +64,15 @@ const MenuItem = ({ menuItem }: Props) => {
         direction={'column'}
         style={{ transition: 'ease-in all .1s' }}
       >
-        {menuItem.children?.map((children) => (
+        {menuItem.children?.map((children, index) => (
           <Flex
-            gap={'23px'}
-            pl={'70px'}
+            key={index}
+            pl={'61px'}
             py={'9px'}
             onClick={() => children?.path && navigate(children.path)}
             style={{
               cursor: 'pointer',
-              borderRight: children?.path === location.pathname ? '4px red solid' : 'unset',
+              borderRight: children?.path === location.pathname ? '4px red solid' : 'none',
               borderBottom: '1px solid #ADADAD',
             }}
           >
@@ -84,4 +84,4 @@ const MenuItem = ({ menuItem }: Props) => {
   );
 };
 
-export default MenuItem;
+export default SidebarItem;

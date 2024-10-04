@@ -1,9 +1,9 @@
 const IconRimon = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' width='104' height='23' viewBox='0 0 104 23' fill='none'>
-    <g clip-path='url(#clip0_1_594)'>
+  <svg xmlns='http://www.w3.org/2000/svg' width='104px' height='23px' viewBox='0 0 104 23' fill='none'>
+    <g clipPath='url(#clip0_1_594)'>
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M70.512 1.17359L75.7929 3.94935L70.512 0L65.2283 3.94935L70.512 1.17359Z'
         fill='white'
       />

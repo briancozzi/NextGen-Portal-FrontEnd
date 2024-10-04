@@ -1,11 +1,10 @@
-import { Flex, Text } from '@radix-ui/themes';
+import { Flex } from '@radix-ui/themes';
+import PageHeader from '../../components/PageHeader';
 
 const CreatePagePage = () => {
   return (
-    <Flex p={'3'} width={'100%'} height={'100%'}>
-      <Text size={'6'} weight={'medium'}>
-        {'Create Page'}
-      </Text>
+    <Flex p={'3'} width={'100%'} height={'100%'} direction={'column'}>
+      <PageHeader>Create Page</PageHeader>
     </Flex>
   );
 };

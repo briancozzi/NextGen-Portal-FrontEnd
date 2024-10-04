@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import ManageUsersPage from '../pages/userManagement/ManageUsersPage';
-import CreateUserPage from '../pages/userManagement/CreateUserPage';
-import CreatePagePage from '../pages/pageManagement/CreatePagePage';
-import ManagePagesPage from '../pages/pageManagement/ManagePagesPage';
-import UserDashboardsPage from '../pages/pageManagement/UserDashboardsPage';
+import ManageUsersPage from '../pages/UserManagement/ManageUsersPage';
+import CreateUserPage from '../pages/UserManagement/CreateUserPage';
+import CreatePagePage from '../pages/PageManagement/CreatePagePage';
+import ManagePagesPage from '../pages/PageManagement/ManagePagesPage';
+import UserDashboardsPage from '../pages/PageManagement/UserDashboardsPage';
 import DataManagementPage from '../pages/DataManagementPage';
 import WidgetSettingsPage from '../pages/WidgetSettingsPage';
 import SidebarSettingsPage from '../pages/SidebarSettingsPage';
@@ -15,35 +15,35 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: '/manage_users',
+        path: '/users',
         element: <ManageUsersPage />,
       },
       {
-        path: '/create_user',
+        path: '/users/create',
         element: <CreateUserPage />,
-      },
-      {
-        path: '/create_page',
-        element: <CreatePagePage />,
-      },
-      {
-        path: '/manage_pages',
-        element: <ManagePagesPage />,
       },
       {
         path: '/user_dashboards',
         element: <UserDashboardsPage />,
       },
       {
-        path: '/data_management',
+        path: '/pages',
+        element: <ManagePagesPage />,
+      },
+      {
+        path: '/pages/create',
+        element: <CreatePagePage />,
+      },
+      {
+        path: '/data',
         element: <DataManagementPage />,
       },
       {
-        path: '/widget_settings',
+        path: '/widget',
         element: <WidgetSettingsPage />,
       },
       {
-        path: '/sidebar_settings',
+        path: '/sidebar',
         element: <SidebarSettingsPage />,
       },
     ],

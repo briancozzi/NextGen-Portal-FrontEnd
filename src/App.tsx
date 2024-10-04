@@ -1,13 +1,12 @@
-// import { useState } from "react";
 import { Outlet } from 'react-router-dom';
 import './App.css';
-import Sidebar from './components/Sidebar';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <Sidebar>
+    <Navigation>
       <Outlet />
-    </Sidebar>
+    </Navigation>
   );
 }
 
