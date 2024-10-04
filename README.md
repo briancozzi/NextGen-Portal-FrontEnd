@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# NextGen Portal FrontEnd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a basic setup for a **Vite** React application with **TypeScript**.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+These instructions will help you set up and run the project locally for development and testing purposes.
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Ensure you have the following installed on your machine:
 
-- Configure the top-level `parserOptions` property like this:
+- [Node.js](https://nodejs.org/) (version 18.18.x or higher recommended)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) as a package manager
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Installing
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/briancozzi/NextGen-Portal-FrontEnd.git
+   ```
+
+2. **Navigate to the project directory**
+
+```bash
+cd <project-directory>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. **Install dependencies**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+If you are using `npm`:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+Or if you are using `yarn`:
+
+```bash
+yarn
+```
+
+### Running the Application
+
+To run the application locally for development:
+
+If you are using `npm`:
+
+```bash
+npm run dev
+```
+
+Or if you are using `yarn`:
+
+```bash
+yarn dev
+```
+
+This command will start the Vite development server. The app will be available at `http://localhost:5173/` by default.
+
+### Building for Production
+
+To build the project for production:
+
+If you are using `npm`:
+
+```bash
+npm run build
+```
+
+Or if you are using `yarn`:
+
+```bash
+yarn build
+```
+
+This will bundle the application for production in the `dist/` folder.
