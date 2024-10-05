@@ -1,5 +1,5 @@
 import { Flex } from '@radix-ui/themes';
-import IconBell from '../../../icons/IconBell';
+import { IconBell } from '@icons';
 
 const Notification = () => {
   return (

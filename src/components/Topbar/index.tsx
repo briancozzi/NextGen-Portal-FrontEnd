@@ -1,7 +1,7 @@
 import { Avatar, Flex, Text } from '@radix-ui/themes';
 import Search from './Search';
 import Notification from './Notification';
-import IconArrow from '../../icons/IconArrow';
+import { IconArrow } from '@icons';
 
 const Topbar = () => {
   return (

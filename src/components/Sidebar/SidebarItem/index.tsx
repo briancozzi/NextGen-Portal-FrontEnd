@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from '@radix-ui/themes';
 import { ReactNode, useState } from 'react';
-import IconArrowCircle from '../../../icons/IconArrowCircle';
+import { IconArrowCircle } from '@icons';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface Props {

@@ -1,10 +1,5 @@
 import { Flex } from '@radix-ui/themes';
-import { IconRimon } from '../../icons';
-import IconUserManagement from '../../icons/IconUserManagement';
-import IconFolder from '../../icons/IconFolder';
-import IconData from '../../icons/IconData';
-import IconWidget from '../../icons/IconWidget';
-import IconSidebar from '../../icons/IconSidebar';
+import { IconFolder, IconData, IconWidget, IconSidebar, IconUserManagement, IconRimon } from '@icons';
 import SidebarItem, { SidebarMenu } from './SidebarItem';
 
 const Sidebar = () => {

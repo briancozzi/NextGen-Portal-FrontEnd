@@ -1,10 +1,10 @@
 import { Flex } from '@radix-ui/themes';
-import PageHeader from '../../components/PageHeader';
+import PageTitle from '@components/PageTitle';
 
 const ManageUsersPage = () => {
   return (
     <Flex p={'3'} width={'100%'} height={'100%'} direction={'column'}>
-      <PageHeader>Manage Users Page</PageHeader>
+      <PageTitle>Manage Users Page</PageTitle>
     </Flex>
   );
 };

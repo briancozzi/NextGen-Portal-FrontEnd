@@ -4,7 +4,7 @@ interface Props {
   children: string;
 }
 
-const PageHeader = ({ children }: Props) => {
+const PageTitle = ({ children }: Props) => {
   return (
     <Box pb={'4'} width={'100%'} style={{ borderBottom: '1px solid black' }}>
       <Heading color={'red'}>{children}</Heading>
@@ -12,4 +12,4 @@ const PageHeader = ({ children }: Props) => {
   );
 };
 
-export default PageHeader;
+export default PageTitle;
