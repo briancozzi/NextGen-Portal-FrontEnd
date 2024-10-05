@@ -11,6 +11,7 @@ export default defineConfig({
       '@components': resolve(root, 'components'),
       '@pages': resolve(root, 'pages'),
       '@icons': resolve(root, 'icons'),
+      '@api': resolve(root, 'api'),
     },
   },
 });

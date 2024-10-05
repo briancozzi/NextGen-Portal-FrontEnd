@@ -25,6 +25,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
+      "@api/*": ["api/*"],
       "@icons/*": ["icons/*"],
       "@icons": ["icons/index"],
       "@test/*": ["../test/*"]

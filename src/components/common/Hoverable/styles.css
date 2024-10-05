@@ -1,0 +1,6 @@
+.hoverable {
+  border: 1px solid transparent;
+  box-shadow: none;
+  background-color: transparent;
+  cursor: pointer;
+}
