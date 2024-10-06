@@ -9,6 +9,7 @@ import { Controller, SubmitHandler } from 'react-hook-form';
 import { useCallback, useEffect } from 'react';
 import { useMutationAddUser, useMutationUpdateUser } from '@mutations';
 import { useToast } from '@components/common/hooks';
+import ImageField from '@components/common/ImageField';
 
 interface Props {
   user?: User | null;
@@ -18,8 +19,6 @@ const UserForm = ({ user }: Props) => {
   const methods = useForm();
   const { control, reset, formState } = methods;
   const { showToast } = useToast();
-
-  console.log({ errors: formState.errors });
 
   const resetForm = useCallback(() => {
     if (user) {
@@ -86,8 +85,8 @@ const UserForm = ({ user }: Props) => {
   };
 
   return (
-    <Flex p={'4'} width={'100%'} direction={'column'} gap={'6'}>
-      <Flex width={'100%'}>
+    <Flex p={'4'} width={'100%'} direction={'column'} gap={'6'} maxWidth={'1000px'}>
+      <Flex width={'100%'} gap={'4'}>
         <Flex width={'50%'} direction={'column'} gap={'3'}>
           <FormRow label={'Username'} errorMessage={formState.errors.username?.message}>
             <Controller
@@ -153,7 +152,29 @@ const UserForm = ({ user }: Props) => {
             />
           </FormRow>
         </Flex>
-        <Flex width={'50%'}></Flex>
+        <Flex width={'50%'} direction={'column'} gap={'3'}>
+          <FormRow label={'Job Title'}>
+            <Controller
+              control={control}
+              name={'jobTitle'}
+              render={({ field }) => (
+                <Select
+                  options={jobTitleOptions}
+                  placeholder={'Select Title'}
+                  defaultValue={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+          </FormRow>
+          <FormRow label={'User Photo'}>
+            <Controller
+              control={control}
+              name={'photo'}
+              render={({ field }) => <ImageField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+        </Flex>
       </Flex>
       <Flex width={'100%'} justify={'center'}>
         <Button

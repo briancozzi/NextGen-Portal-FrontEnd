@@ -24,6 +24,7 @@ export const addUser = (user: User) => {
   return db.users.add({ ...user, id: undefined });
 };
 
-export const updateUser = (user: User) => {
-  return db.users.put(user);
+export const updateUser = async (user: User) => {
+  await db.users.put(user);
+  return user;
 };

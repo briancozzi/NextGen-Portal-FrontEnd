@@ -9,8 +9,8 @@ interface Props {
 
 const FormRow = ({ label, errorMessage, children }: Props) => (
   <Flex direction={'column'} align={'end'} gap={'1'}>
-    <Flex width={'100%'} align={'center'} justify={'start'} gap={'5'}>
-      <Flex width={'50%'} justify={'end'}>
+    <Flex width={'100%'} align={'start'} justify={'start'} gap={'3'}>
+      <Flex width={'50%'} justify={'end'} pt={'1'}>
         <Text style={{ color: '#000' }} weight={'medium'}>
           {label}
         </Text>

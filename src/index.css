@@ -13,6 +13,10 @@
   --brand-color: #e42b24;
   --red-9: var(--brand-color);
   --text-color-heading: var(--brand-color);
+
+  .rt-Button {
+    cursor: pointer;
+  }
 }
 
 html {

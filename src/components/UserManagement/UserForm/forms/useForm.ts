@@ -27,6 +27,7 @@ const useForm = () => {
       displayName: yup.string().required(),
       jobTitle: yup.string().required(),
       active: yup.boolean().required(),
+      photo: yup.string(),
     })
     .required();
 

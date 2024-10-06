@@ -8,6 +8,7 @@ export interface User {
   displayName: string;
   jobTitle: string;
   active: boolean;
+  photo?: string;
 }
 
 export interface GetUsersFiltersRequest {

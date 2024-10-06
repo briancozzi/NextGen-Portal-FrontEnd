@@ -12,6 +12,7 @@ interface Props {
 const UserRow = ({ user }: Props) => {
   const [checked, setChecked] = useState(user.active);
   const navigate = useNavigate();
+
   return (
     <Flex
       px={'5'}
@@ -22,7 +23,7 @@ const UserRow = ({ user }: Props) => {
     >
       <Flex align={'center'} gap={'5'}>
         <Flex align={'center'} gap={'2'}>
-          <Avatar size={'4'} fallback={user.middleInitial} />
+          <Avatar src={user.photo} size={'4'} fallback={user.middleInitial} />
           <Text style={{ color: '#242D35' }} weight={'bold'}>{`${user.firstName} ${user.lastName}`}</Text>
         </Flex>
         <Text size={'2'}>{user.jobTitle}</Text>

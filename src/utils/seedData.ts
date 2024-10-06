@@ -1,4 +1,4 @@
-import { db } from './db';
+import { db } from '../api/db';
 
 const seedData = async () => {
   const users = await db.users.toArray();
@@ -17,6 +17,7 @@ const seedData = async () => {
       displayName: 'Hadi',
       jobTitle: 'paralegal',
       active: true,
+      photo: '',
     },
     {
       username: 'steve_g',
@@ -27,6 +28,7 @@ const seedData = async () => {
       displayName: 'Steve',
       jobTitle: 'senior partner',
       active: false,
+      photo: '',
     },
   ]);
 };

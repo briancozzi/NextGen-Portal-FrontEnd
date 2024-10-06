@@ -7,8 +7,12 @@ import router from './router/index.tsx';
 import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContextProvider } from '@components/common/Toast';
+import { initializeYupLocale, seedData } from '@utils';
 
 const queryClient = new QueryClient();
+
+seedData();
+initializeYupLocale();
 
 createRoot(document.getElementById('root')!).render(
   <Theme accentColor={'red'} radius={'full'}>
