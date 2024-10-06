@@ -8,6 +8,7 @@ import ManageUsersPage from '@pages/UserManagement/ManageUsersPage';
 import ManagePagesPage from '@pages/PageManagement/ManagePagesPage';
 import CreatePagePage from '@pages/PageManagement/CreatePagePage';
 import UserDashboardsPage from '@pages/PageManagement/UserDashboardsPage';
+import UpdateUserPage from '@pages/UserManagement/UpdateUserPage';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: '/users/create',
         element: <CreateUserPage />,
+      },
+      {
+        path: '/users/:id/edit',
+        element: <UpdateUserPage />,
       },
       {
         path: '/user_dashboards',

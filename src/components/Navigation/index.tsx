@@ -13,7 +13,14 @@ const Navigation = ({ children }: Props) => {
       <Sidebar />
       <Flex direction={'column'} flexGrow={'1'}>
         <Topbar />
-        <Flex px={'3'} pt={'3'} flexGrow={'1'} style={{ backgroundColor: '#FAFAFA' }}>
+        <Flex
+          px={'3'}
+          pt={'3'}
+          flexGrow={'1'}
+          height={'calc(100% - 82px)'}
+          overflow={'auto'}
+          style={{ backgroundColor: '#FAFAFA' }}
+        >
           {children}
         </Flex>
       </Flex>

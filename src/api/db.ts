@@ -8,8 +8,7 @@ const db = new Dexie('NextGen-db') as Dexie & {
 
 // Schema declaration:
 db.version(1).stores({
-  users: '++id, username, firstname, lastname, middleInitial, suffix, displayName, jobTitle',
+  users: '++id, firstName, lastName',
 });
 
-export type { User };
 export { db };

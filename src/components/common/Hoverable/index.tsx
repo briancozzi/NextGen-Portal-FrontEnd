@@ -4,11 +4,12 @@ import './styles.css';
 
 interface Props {
   children?: ReactNode;
+  onClick?: () => void;
 }
 
-const Hoverable = ({ children }: Props) => {
+const Hoverable = ({ onClick, children }: Props) => {
   return (
-    <Button className={'hoverable'} variant={'surface'}>
+    <Button className={'hoverable'} variant={'surface'} onClick={onClick}>
       {children}
     </Button>
   );

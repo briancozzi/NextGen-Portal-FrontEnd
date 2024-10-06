@@ -1,8 +1,9 @@
-import { User } from '@api/db';
+import { User } from '@api/users/types';
 import { Hoverable, Switch } from '@components/common';
 import { IconPencil } from '@icons';
 import { Avatar, Flex, Text } from '@radix-ui/themes';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   user: User;
@@ -10,7 +11,7 @@ interface Props {
 
 const UserRow = ({ user }: Props) => {
   const [checked, setChecked] = useState(user.active);
-
+  const navigate = useNavigate();
   return (
     <Flex
       px={'5'}
@@ -27,7 +28,7 @@ const UserRow = ({ user }: Props) => {
         <Text size={'2'}>{user.jobTitle}</Text>
       </Flex>
       <Flex gap={'5'}>
-        <Hoverable>
+        <Hoverable onClick={() => navigate(`/users/${user.id}/edit`)}>
           <IconPencil />
         </Hoverable>
         <Switch checked={checked} onCheckedChange={(value) => setChecked(value)} />

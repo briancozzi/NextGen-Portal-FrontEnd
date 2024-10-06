@@ -9,23 +9,23 @@ const seedData = async () => {
 
   db.users.bulkAdd([
     {
-      userName: 'hadi_sy',
+      username: 'hadi_sy',
       firstName: 'abdul',
       lastName: 'hadi',
       middleInitial: 'sy',
-      suffix: 'Mr.',
+      suffix: 'Ph.D',
       displayName: 'Hadi',
-      jobTitle: 'Staff',
+      jobTitle: 'paralegal',
       active: true,
     },
     {
-      userName: 'steve_g',
+      username: 'steve_g',
       firstName: 'Steve',
       lastName: 'Rogers',
       middleInitial: 'ab',
-      suffix: 'Mr.',
+      suffix: 'M.D',
       displayName: 'Steve',
-      jobTitle: 'Staff',
+      jobTitle: 'senior partner',
       active: false,
     },
   ]);

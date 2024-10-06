@@ -1,6 +1,6 @@
 export interface User {
-  id: number;
-  userName: string;
+  id?: number;
+  username: string;
   firstName: string;
   lastName: string;
   middleInitial: string;
@@ -9,3 +9,17 @@ export interface User {
   jobTitle: string;
   active: boolean;
 }
+
+export interface GetUsersFiltersRequest {
+  keyword?: string;
+}
+
+export interface GetUsersRequest {
+  filters: GetUsersFiltersRequest;
+}
+
+export interface GetUserRequest {
+  id: number;
+}
+
+export type GetUsersResponse = Array<User>;

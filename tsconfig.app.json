@@ -23,9 +23,13 @@
     /* Path Alias */
     "baseUrl": "./src",
     "paths": {
+      "@src/*": ["src/*"],
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@api/*": ["api/*"],
+      "@queries": ["queries/index"],
+      "@mutations": ["mutations/index"],
+      "@queryKeys": ["queryKeys/index"],
       "@icons/*": ["icons/*"],
       "@icons": ["icons/index"],
       "@test/*": ["../test/*"]

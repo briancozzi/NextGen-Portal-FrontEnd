@@ -1,18 +1,26 @@
-import { User } from '@api/db';
 import { Flex } from '@radix-ui/themes';
 import UserRow from './UserRow';
 import Search from '@components/Topbar/Search';
+import { useQueryUsers } from '@queries';
+import { useEffect, useState } from 'react';
 
-interface Props {
-  users?: Array<User>;
-}
+const UserList = () => {
+  const [keyword, setKeyword] = useState('');
+  const query = useQueryUsers({ request: { filters: { keyword } } });
 
-const UserList = ({ users }: Props) => {
+  useEffect(() => {
+    query.refetch();
+  }, [keyword, query]);
+
+  const handleChangeKeyword = (value: string) => {
+    setKeyword(value);
+  };
+
   return (
     <Flex direction={'column'} pt={'4'} gap={'4'}>
-      <Search />
+      <Search value={keyword} onChange={handleChangeKeyword} />
       <Flex direction={'column'} gap={'3'}>
-        {users?.map((user) => (
+        {query.data?.map((user) => (
           <UserRow user={user} />
         ))}
       </Flex>
