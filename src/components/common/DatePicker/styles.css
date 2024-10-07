@@ -1,0 +1,18 @@
+.NextGen-DatePicker {
+  border: 1px solid #eaecee;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.05);
+  padding: 2px 2px;
+}
+
+.react-date-picker__inputGroup__input {
+  width: auto;
+}
+
+.react-date-picker__wrapper {
+  border: none;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background-color: var(--brand-color);
+}

@@ -18,7 +18,23 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path Alias */
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@api/*": ["api/*"],
+      "@queries": ["queries/index"],
+      "@mutations": ["mutations/index"],
+      "@queryKeys": ["queryKeys/index"],
+      "@icons/*": ["icons/*"],
+      "@icons": ["icons/index"],
+      "@test/*": ["../test/*"],
+      "@utils": ["utils/index"]
+    }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
