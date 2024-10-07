@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
-import CreateUserPage from '@pages/UserManagement/CreateUserPage';
+import CreateUserPage from '@pages/userManagement/CreateUserPage';
 import DataManagementPage from '@pages/DataManagementPage';
 import WidgetSettingsPage from '@pages/WidgetSettingsPage';
 import SidebarSettingsPage from '@pages/SidebarSettingsPage';
-import ManageUsersPage from '@pages/UserManagement/ManageUsersPage';
-import ManagePagesPage from '@pages/PageManagement/ManagePagesPage';
-import CreatePagePage from '@pages/PageManagement/CreatePagePage';
-import UserDashboardsPage from '@pages/PageManagement/UserDashboardsPage';
-import UpdateUserPage from '@pages/UserManagement/UpdateUserPage';
+import ManageUsersPage from '@pages/userManagement/ManageUsersPage';
+import ManagePagesPage from '@pages/pageManagement/ManagePagesPage';
+import CreatePagePage from '@pages/pageManagement/CreatePagePage';
+import UserDashboardsPage from '@pages/pageManagement/UserDashboardsPage';
+import UpdateUserPage from '@pages/userManagement/UpdateUserPage';
 
 const router = createBrowserRouter([
   {
