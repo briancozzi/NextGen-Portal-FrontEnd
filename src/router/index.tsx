@@ -9,6 +9,8 @@ import ManagePagesPage from '@pages/pages/ManagePagesPage';
 import CreatePagePage from '@pages/pages/CreatePagePage';
 import UserDashboardsPage from '@pages/pages/UserDashboardsPage';
 import UpdateUserPage from '@pages/users/UpdateUserPage';
+import UpdatePagePage from '@pages/pages/UpdatePagePage';
+import BuilderPage from '@pages/BuilderPage';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
         element: <CreatePagePage />,
       },
       {
+        path: '/pages/:id/edit',
+        element: <UpdatePagePage />,
+      },
+      {
         path: '/data',
         element: <DataManagementPage />,
       },
@@ -54,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: '/sidebar',
         element: <SidebarSettingsPage />,
+      },
+      {
+        path: '/builder/:id/edit',
+        element: <BuilderPage />,
       },
     ],
   },

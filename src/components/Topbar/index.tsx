@@ -2,10 +2,10 @@ import { Avatar, Flex, Text } from '@radix-ui/themes';
 import Search from './Search';
 import Notification from './Notification';
 import { IconArrow } from '@icons';
-import { useQueryUser } from '@queries';
+import { useCurrentUser } from '@components/common/hooks';
 
 const Topbar = () => {
-  const query = useQueryUser({ id: 1 });
+  const user = useCurrentUser();
 
   return (
     <Flex width={'100%'} px={'36px'} py={'20px'} justify={'between'} align={'center'} gap={'3'}>
@@ -22,7 +22,7 @@ const Topbar = () => {
       </Flex>
       <Flex gap={'2'}>
         <Notification />
-        <Avatar src={query?.data?.photo} fallback={query?.data?.middleInitial ?? 'A'} />
+        <Avatar src={user?.photo} fallback={user?.middleInitial ?? 'A'} />
       </Flex>
     </Flex>
   );

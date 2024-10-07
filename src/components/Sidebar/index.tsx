@@ -17,7 +17,11 @@ const Sidebar = () => {
       label: 'Page Management',
       children: [
         { label: 'Create Page', path: '/pages/create', activePaths: ['^/pages/create$'] },
-        { label: 'Manage Pages', path: '/pages', activePaths: ['^/pages$'] },
+        {
+          label: 'Manage Pages',
+          path: '/pages',
+          activePaths: ['^/pages$', '^/pages/\\d+(/edit)?$', '^/builder/\\d+(/edit)?$'],
+        },
         { label: 'User Dashboards', path: '/user_dashboards', activePaths: ['^/user_dashboards$'] },
       ],
     },
