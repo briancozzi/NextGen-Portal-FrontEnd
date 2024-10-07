@@ -7,5 +7,5 @@ export { default as IconSidebar } from './IconSidebar';
 export { default as IconUserManagement } from './IconUserManagement';
 export { default as IconWidget } from './IconWidget';
 export { default as IconSearch } from './IconSearch';
-export { default as IconBell } from './IconSearch';
+export { default as IconBell } from './IconBell';
 export { default as IconPencil } from './IconPencil';
