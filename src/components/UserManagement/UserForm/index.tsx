@@ -1,15 +1,15 @@
-import { User } from '@api/users/types';
+import { DASHBOARD_TYPES, DEPARTMENT_TYPES, JOB_TITLE_TYPES, OFFICE_TYPES, SUFFIX_TYPES, User } from '@api/users/types';
 import { TextField } from '@components/common';
 import Select, { SelectOption } from '@components/common/Select';
 import { Button, Flex } from '@radix-ui/themes';
 import FormRow from './FormRow';
-// import DatePicker from '@components/common/DatePicker';
 import useForm, { FormProps } from './forms/useForm';
 import { Controller, SubmitHandler } from 'react-hook-form';
 import { useCallback, useEffect } from 'react';
 import { useMutationAddUser, useMutationUpdateUser } from '@mutations';
 import { useToast } from '@components/common/hooks';
 import ImageField from '@components/common/ImageField';
+import DatePicker from '@components/common/DatePicker';
 
 interface Props {
   user?: User | null;
@@ -19,6 +19,8 @@ const UserForm = ({ user }: Props) => {
   const methods = useForm();
   const { control, reset, formState } = methods;
   const { showToast } = useToast();
+
+  console.log({ erros: formState.errors });
 
   const resetForm = useCallback(() => {
     if (user) {
@@ -30,41 +32,20 @@ const UserForm = ({ user }: Props) => {
     resetForm();
   }, [resetForm]);
 
-  const suffixOptions: Array<SelectOption> = [
-    { value: 'Ph.D', label: 'Ph.D' },
-    { value: 'M.D.', label: 'M.D.' },
-    { value: 'Esq.', label: 'Esq.' },
-    { value: 'CPA', label: 'CPA' },
-  ];
-
-  const jobTitleOptions: Array<SelectOption> = [
-    { value: 'practice group director', label: 'Practice Group Director' },
-    { value: 'paralegal', label: 'Paralegal' },
-    { value: 'member', label: 'Member' },
-    { value: 'junior associate', label: 'Junior Associate' },
-    { value: 'associate', label: 'Associate' },
-    { value: 'senior associate', label: 'Senior Associate' },
-    { value: 'junior partner', label: 'Junior Partner' },
-    { value: 'senior partner', label: 'Senior Partner' },
-  ];
-
-  // const departmentOptions: Array<SelectOption> = [
-  //   { value: 'department 1', label: 'Department 1' },
-  //   { value: 'department 2', label: 'Department 2' },
-  //   { value: 'department 3', label: 'Department 3' },
-  // ];
-
-  // const officeOptions: Array<SelectOption> = [
-  //   { value: 'office 1', label: 'Office 1' },
-  //   { value: 'office 2', label: 'Office 2' },
-  //   { value: 'office 3', label: 'Office 3' },
-  // ];
-
-  // const dashboardOptions: Array<SelectOption> = [
-  //   { value: 'dashboard 1', label: 'Dashboard 1' },
-  //   { value: 'dashboard 2', label: 'Dashboard 2' },
-  //   { value: 'dashboard 3', label: 'Dashboard 3' },
-  // ];
+  const suffixOptions: Array<SelectOption> = SUFFIX_TYPES.map((suffix) => ({ value: suffix, label: suffix }));
+  const jobTitleOptions: Array<SelectOption> = JOB_TITLE_TYPES.map((jobTitle) => ({
+    value: jobTitle,
+    label: jobTitle,
+  }));
+  const departmentOptions: Array<SelectOption> = DEPARTMENT_TYPES.map((department) => ({
+    value: department,
+    label: department,
+  }));
+  const officeOptions: Array<SelectOption> = OFFICE_TYPES.map((office) => ({ value: office, label: office }));
+  const dashboardOptions: Array<SelectOption> = DASHBOARD_TYPES.map((dashboard) => ({
+    value: dashboard,
+    label: dashboard,
+  }));
 
   const { mutate: addUser } = useMutationAddUser({
     onSuccess: () => showToast('Successfully created a user', 'success'),
@@ -95,6 +76,13 @@ const UserForm = ({ user }: Props) => {
               render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
             />
           </FormRow>
+          <FormRow label={'Last Name'} errorMessage={formState.errors.lastName?.message}>
+            <Controller
+              control={control}
+              name={'lastName'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
           <FormRow label={'First Name'} errorMessage={formState.errors.firstName?.message}>
             <Controller
               control={control}
@@ -102,21 +90,14 @@ const UserForm = ({ user }: Props) => {
               render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
             />
           </FormRow>
-          <FormRow label={'Last Name'}>
-            <Controller
-              control={control}
-              name={'lastName'}
-              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
-            />
-          </FormRow>
-          <FormRow label={'Middle Initial'}>
+          <FormRow label={'Middle Initial'} errorMessage={formState.errors.middleInitial?.message}>
             <Controller
               control={control}
               name={'middleInitial'}
               render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
             />
           </FormRow>
-          <FormRow label={'Suffix'}>
+          <FormRow label={'Suffix'} errorMessage={formState.errors.suffix?.message}>
             <Controller
               control={control}
               name={'suffix'}
@@ -130,14 +111,14 @@ const UserForm = ({ user }: Props) => {
               )}
             />
           </FormRow>
-          <FormRow label={'Display Name'}>
+          <FormRow label={'Display Name'} errorMessage={formState.errors.displayName?.message}>
             <Controller
               control={control}
               name={'displayName'}
               render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
             />
           </FormRow>
-          <FormRow label={'Job Title'}>
+          <FormRow label={'Job Title'} errorMessage={formState.errors.jobTitle?.message}>
             <Controller
               control={control}
               name={'jobTitle'}
@@ -149,25 +130,109 @@ const UserForm = ({ user }: Props) => {
                   onChange={field.onChange}
                 />
               )}
+            />
+          </FormRow>
+          <FormRow label={'Start Date'} errorMessage={formState.errors.startDate?.message}>
+            <Controller
+              control={control}
+              name={'startDate'}
+              render={({ field }) => <DatePicker value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'PG /Department'} errorMessage={formState.errors.department?.message}>
+            <Controller
+              control={control}
+              name={'department'}
+              render={({ field }) => (
+                <Select
+                  options={departmentOptions}
+                  placeholder={'Select PG/Department'}
+                  defaultValue={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+          </FormRow>
+          <FormRow label={'Timekeeper Number'} errorMessage={formState.errors.timekeeperNumber?.message}>
+            <Controller
+              control={control}
+              name={'timekeeperNumber'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'Phone Number'} errorMessage={formState.errors.phoneNumber?.message}>
+            <Controller
+              control={control}
+              name={'phoneNumber'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'Internal Extn.'} errorMessage={formState.errors.internalExtn?.message}>
+            <Controller
+              control={control}
+              name={'internalExtn'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'Mobile Phone'} errorMessage={formState.errors.mobilePhone?.message}>
+            <Controller
+              control={control}
+              name={'mobilePhone'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'Assistant Name'} errorMessage={formState.errors.assistantName?.message}>
+            <Controller
+              control={control}
+              name={'assistantName'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'Office'} errorMessage={formState.errors.office?.message}>
+            <Controller
+              control={control}
+              name={'office'}
+              render={({ field }) => (
+                <Select
+                  options={officeOptions}
+                  placeholder={'Select Office'}
+                  defaultValue={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+          </FormRow>
+          <FormRow label={'Office Room Number'} errorMessage={formState.errors.officeRoomNumber?.message}>
+            <Controller
+              control={control}
+              name={'officeRoomNumber'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
+            />
+          </FormRow>
+          <FormRow label={'Email Address'} errorMessage={formState.errors.emailAddress?.message}>
+            <Controller
+              control={control}
+              name={'emailAddress'}
+              render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
             />
           </FormRow>
         </Flex>
         <Flex width={'50%'} direction={'column'} gap={'3'}>
-          <FormRow label={'Job Title'}>
+          <FormRow label={'Default Dashboard'} errorMessage={formState.errors.defaultDashboard?.message}>
             <Controller
               control={control}
-              name={'jobTitle'}
+              name={'defaultDashboard'}
               render={({ field }) => (
                 <Select
-                  options={jobTitleOptions}
-                  placeholder={'Select Title'}
+                  options={dashboardOptions}
+                  placeholder={'Select Dashboard'}
                   defaultValue={field.value}
                   onChange={field.onChange}
                 />
               )}
             />
           </FormRow>
-          <FormRow label={'User Photo'}>
+          <FormRow label={'User Photo'} errorMessage={formState.errors.photo?.message}>
             <Controller
               control={control}
               name={'photo'}
@@ -182,7 +247,7 @@ const UserForm = ({ user }: Props) => {
             methods.handleSubmit(onSubmit)();
           }}
         >
-          {user?.id ? 'Update User' : 'Create User'}
+          {user?.id ? 'UPDATE USER' : 'CREATE USER'}
         </Button>
       </Flex>
     </Flex>

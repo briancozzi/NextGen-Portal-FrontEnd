@@ -8,33 +8,36 @@ const Sidebar = () => {
       icon: <IconUserManagement />,
       label: 'User Management',
       children: [
-        { label: 'Create User', path: '/users/create' },
-        { label: 'Manage Users', path: '/users' },
+        { label: 'Create User', path: '/users/create', activePaths: ['^/users/create$'] },
+        { label: 'Manage Users', path: '/users', activePaths: ['^/users$', '^/users/\\d+(/edit)?$'] }, // Matches /users and /users/1/edit
       ],
     },
     {
       icon: <IconFolder />,
       label: 'Page Management',
       children: [
-        { label: 'Create Page', path: '/pages/create' },
-        { label: 'Manage Pages', path: '/pages' },
-        { label: 'User Dashboards', path: '/user_dashboards' },
+        { label: 'Create Page', path: '/pages/create', activePaths: ['^/pages/create$'] },
+        { label: 'Manage Pages', path: '/pages', activePaths: ['^/pages$'] },
+        { label: 'User Dashboards', path: '/user_dashboards', activePaths: ['^/user_dashboards$'] },
       ],
     },
     {
       icon: <IconData />,
       label: 'Data Management',
       path: '/data',
+      activePaths: ['^/data$'],
     },
     {
       icon: <IconWidget />,
       label: 'Widget Settings',
       path: '/widget',
+      activePaths: ['^/widget$'],
     },
     {
       icon: <IconSidebar />,
       label: 'Sidebar Settings',
       path: '/sidebar',
+      activePaths: ['^/sidebar$'],
     },
   ];
 

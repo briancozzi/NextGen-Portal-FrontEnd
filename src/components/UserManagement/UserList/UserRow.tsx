@@ -1,6 +1,8 @@
 import { User } from '@api/users/types';
 import { Hoverable, Switch } from '@components/common';
+import { useToast } from '@components/common/hooks';
 import { IconPencil } from '@icons';
+import { useMutationUpdateUser } from '@mutations';
 import { Avatar, Flex, Text } from '@radix-ui/themes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,6 +14,18 @@ interface Props {
 const UserRow = ({ user }: Props) => {
   const [checked, setChecked] = useState(user.active);
   const navigate = useNavigate();
+  const { showToast } = useToast();
+
+  const { mutate: updateUser } = useMutationUpdateUser({
+    onSuccess: (user) =>
+      user.active ? showToast('User is now active', 'success') : showToast('User is now inactive', 'success'),
+    onError: () => showToast('Failed to update a user', 'error'),
+  });
+
+  const handleCheckedChange = (value: boolean) => {
+    setChecked(value);
+    updateUser({ ...user, active: value });
+  };
 
   return (
     <Flex
@@ -32,7 +46,7 @@ const UserRow = ({ user }: Props) => {
         <Hoverable onClick={() => navigate(`/users/${user.id}/edit`)}>
           <IconPencil />
         </Hoverable>
-        <Switch checked={checked} onCheckedChange={(value) => setChecked(value)} />
+        <Switch checked={checked} onCheckedChange={handleCheckedChange} />
       </Flex>
     </Flex>
   );

@@ -4,7 +4,7 @@ import { updateUser } from '@api/users';
 import { USER_QUERY_KEY } from '@queryKeys';
 
 interface Params {
-  onSuccess?: () => void;
+  onSuccess?: (user: User) => void;
   onError?: () => void;
 }
 
@@ -15,7 +15,7 @@ const useMutationUpdateUser = ({ onSuccess, onError }: Params) => {
     mutationFn: (user: User) => updateUser(user),
     onSuccess: (user: User) => {
       queryClient.invalidateQueries({ queryKey: [USER_QUERY_KEY, user.id] });
-      onSuccess?.();
+      onSuccess?.(user);
     },
     onError,
   });

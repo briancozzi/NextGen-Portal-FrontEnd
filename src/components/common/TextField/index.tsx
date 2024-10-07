@@ -2,7 +2,7 @@ import { TextField as RadixTextField } from '@radix-ui/themes';
 import './styles.css';
 
 interface Props {
-  value?: string;
+  value?: string | number;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
 }

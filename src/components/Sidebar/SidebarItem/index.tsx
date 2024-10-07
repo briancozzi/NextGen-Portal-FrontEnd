@@ -13,14 +13,15 @@ export interface SidebarMenu {
   children?: Array<SidebarMenu>;
   onClick?: () => void;
   path?: string;
+  activePaths?: Array<string>;
 }
 
 const SidebarItem = ({ menuItem }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isActive =
-    menuItem?.path === location.pathname ||
-    menuItem.children?.some((children) => children.path === location.pathname) ||
+    menuItem?.activePaths?.some((path) => new RegExp(path).test(location.pathname)) ||
+    menuItem.children?.some((child) => child?.activePaths?.some((path) => new RegExp(path).test(location.pathname))) ||
     false;
 
   const [isOpen, setIsOpen] = useState(isActive);
@@ -72,7 +73,9 @@ const SidebarItem = ({ menuItem }: Props) => {
             onClick={() => children?.path && navigate(children.path)}
             style={{
               cursor: 'pointer',
-              borderRight: children?.path === location.pathname ? '4px red solid' : 'none',
+              borderRight: children?.activePaths?.some((path) => new RegExp(path).test(location.pathname))
+                ? '4px red solid'
+                : 'none',
               borderBottom: '1px solid #ADADAD',
             }}
           >

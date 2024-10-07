@@ -3,7 +3,7 @@ import { Flex } from '@radix-ui/themes';
 import React from 'react';
 
 interface Props {
-  value?: string; // Blob type as a base64 string
+  value?: string;
   onChange?: (value: string) => void;
 }
 
@@ -14,10 +14,10 @@ const ImageField = ({ value, onChange }: Props) => {
       const reader = new FileReader();
       reader.onloadend = () => {
         if (reader.result) {
-          onChange?.(reader.result as string); // Passing the base64 string
+          onChange?.(reader.result as string);
         }
       };
-      reader.readAsDataURL(file); // Convert file to base64 string
+      reader.readAsDataURL(file);
     }
   };
 
