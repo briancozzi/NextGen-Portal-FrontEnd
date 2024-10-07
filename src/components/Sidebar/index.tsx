@@ -9,7 +9,7 @@ const Sidebar = () => {
       label: 'User Management',
       children: [
         { label: 'Create User', path: '/users/create', activePaths: ['^/users/create$'] },
-        { label: 'Manage Users', path: '/users', activePaths: ['^/users$', '^/users/\\d+(/edit)?$'] }, // Matches /users and /users/1/edit
+        { label: 'Manage Users', path: '/users', activePaths: ['^/$', '^/users$', '^/users/\\d+(/edit)?$'] },
       ],
     },
     {
