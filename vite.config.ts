@@ -18,4 +18,5 @@ export default defineConfig({
       '@utils': resolve(root, 'utils'),
     },
   },
+  base: '/NextGen-Portal-FrontEnd/',
 });
