@@ -39,7 +39,7 @@ export interface User {
   officeRoomNumber: number;
   emailAddress: string;
   defaultDashboard: Dashboard;
-  active: boolean;
+  active?: boolean;
   photo?: string;
 }
 
