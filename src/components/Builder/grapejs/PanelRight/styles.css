@@ -1,0 +1,9 @@
+.NextGen-tab {
+  cursor: pointer;
+}
+
+.NextGen-tab--active {
+  background-color: #868b99;
+  color: white;
+  border-radius: 0px 0px 5px 5px;
+}

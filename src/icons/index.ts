@@ -9,3 +9,7 @@ export { default as IconWidget } from './IconWidget';
 export { default as IconSearch } from './IconSearch';
 export { default as IconBell } from './IconBell';
 export { default as IconPencil } from './IconPencil';
+export { default as IconCross } from './IconCross';
+export { default as IconPlus } from './IconPlus';
+export { default as IconHand } from './IconHand';
+export { default as IconDashboard } from './IconDashboard';

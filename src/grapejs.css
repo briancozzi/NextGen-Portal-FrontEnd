@@ -1,0 +1,73 @@
+/* Let's highlight canvas boundaries */
+:root {
+  --gjs-arrow-color: black;
+}
+
+#gjs {
+  padding: 10px;
+  height: 100% !important;
+}
+
+/* Reset some default styling */
+.gjs-cv-canvas {
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gjs-one-bg {
+  background-color: #ced3de;
+}
+
+.gjs-two-color {
+  color: #211f26;
+}
+
+.gjs-block {
+  width: auto;
+  height: auto;
+  min-height: auto;
+  background-color: #f2f3fa;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.gjs-blocks-c {
+  padding: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  color: #868b99;
+}
+
+.gjs-block-divider {
+  height: 2px;
+  background-color: black;
+  width: 100%;
+}
+
+.panel__switcher {
+  position: initial;
+}
+
+.panel__right {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  overflow: auto;
+}
+
+.gjs-field {
+  background-color: #f2f3fa;
+}
+
+.gjs-sm-field input,
+.gjs-clm-select input,
+.gjs-clm-field input,
+.gjs-sm-field select,
+.gjs-clm-select select,
+.gjs-clm-field select {
+  color: #000;
+}

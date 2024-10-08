@@ -1,10 +1,10 @@
 import { Flex } from '@radix-ui/themes';
-import PageTitle from '@components/PageTitle';
+import Builder from '@components/Builder';
 
 const BuilderPage = () => {
   return (
-    <Flex p={'3'} width={'100%'} height={'100%'} direction={'column'}>
-      <PageTitle>Builder Page</PageTitle>
+    <Flex width={'100%'} height={'100%'} direction={'column'}>
+      <Builder />
     </Flex>
   );
 };

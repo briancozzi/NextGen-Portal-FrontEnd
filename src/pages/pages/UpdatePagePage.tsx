@@ -8,6 +8,9 @@ const UpdatePagePage = () => {
   const { id } = useParams();
 
   const query = useQueryPage({ id: Number(id) });
+
+  console.log({ data: query?.data });
+
   return (
     <Flex p={'3'} width={'100%'} height={'100%'} direction={'column'}>
       <PageTitle>{'Update Page'}</PageTitle>

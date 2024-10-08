@@ -8,12 +8,15 @@ import { Button, Flex } from '@radix-ui/themes';
 import { TextField } from '@components/common';
 import FormRow from './FormRow';
 import { useNavigate } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
+import { PAGE_QUERY_KEY } from '@queryKeys';
 
 interface Props {
   page?: Page | null;
 }
 
 const PageForm = ({ page }: Props) => {
+  const queryClient = useQueryClient();
   const methods = useForm();
   const navigate = useNavigate();
   const currentUser = useCurrentUser();
@@ -31,7 +34,10 @@ const PageForm = ({ page }: Props) => {
   }, [resetForm]);
 
   const { mutate: addPage } = useMutationAddPage({
-    onSuccess: () => showToast('Successfully created a page', 'success'),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [PAGE_QUERY_KEY] });
+      showToast('Successfully created a page', 'success');
+    },
     onError: () => showToast('Failed to create a page', 'error'),
   });
 

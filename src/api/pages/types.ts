@@ -3,8 +3,9 @@ export interface Page {
   name: string;
   description?: string;
   slug: string;
-  draft?: string;
-  published?: string;
+  data?: string; // or pageStructureData / designData
+  draftContent?: string; // or draftMarkup / editorPreview
+  publishedContent?: string;
   userId?: number;
   createdAt?: string;
   updatedAt?: string;
