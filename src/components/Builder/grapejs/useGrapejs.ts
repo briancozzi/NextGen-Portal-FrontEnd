@@ -13,7 +13,7 @@ let isLoading = false;
 const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
   const [canvasData, setCanvasData] = useState<{ components: Components | undefined; style: CssRules | undefined }>();
   const [editorInitialized, setEditorInitialized] = useState(false);
-  const [debouncedCanvasData] = useDebounce(canvasData, 2000);
+  const [debouncedCanvasData] = useDebounce(canvasData, 1000);
 
   isLoading = isFetchingPage ?? false;
 
