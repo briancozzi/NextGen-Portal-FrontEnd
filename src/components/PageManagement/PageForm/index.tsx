@@ -50,7 +50,13 @@ const PageForm = ({ page }: Props) => {
     if (data?.id) {
       updatePage(data);
     } else if (currentUser?.id) {
-      addPage({ ...data, userId: currentUser.id });
+      addPage({
+        ...data,
+        userId: currentUser.id,
+        data: '',
+        draftContent: '', // or draftMarkup / editorPreview
+        publishedContent: '',
+      });
     }
   };
 

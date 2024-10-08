@@ -8,7 +8,7 @@ import { Page } from '@api/pages/types';
 import { useMutationUpdatePage } from '@mutations';
 
 let grapejsEditor: Editor | null = null;
-// let editorInitialized = false;
+
 let isLoading = false;
 const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
   const [canvasData, setCanvasData] = useState<{ components: Components | undefined; style: CssRules | undefined }>();
@@ -43,43 +43,6 @@ const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
       });
     }
 
-    // // Define commands
-    // grapejsEditor.Commands.add('show-layers', {
-    //   getRowEl(editor) {
-    //     return editor.getContainer().closest('.editor-row');
-    //   },
-    //   getLayersEl(row) {
-    //     return row.querySelector('.layers-container');
-    //   },
-
-    //   run(editor) {
-    //     const lmEl = this.getLayersEl(this.getRowEl(editor));
-    //     lmEl.style.display = '';
-    //   },
-    //   stop(editor) {
-    //     const lmEl = this.getLayersEl(this.getRowEl(editor));
-    //     lmEl.style.display = 'none';
-    //   },
-    // });
-
-    // grapejsEditor.Commands.add('show-styles', {
-    //   getRowEl(editor) {
-    //     return editor.getContainer().closest('.editor-row');
-    //   },
-    //   getStyleEl(row) {
-    //     return row.querySelector('.styles-container');
-    //   },
-
-    //   run(editor) {
-    //     const smEl = this.getStyleEl(this.getRowEl(editor));
-    //     smEl.style.display = '';
-    //   },
-    //   stop(editor) {
-    //     const smEl = this.getStyleEl(this.getRowEl(editor));
-    //     smEl.style.display = 'none';
-    //   },
-    // });
-
     return () => {
       grapejsEditor?.off('component:add component:remove', togglePlaceholder);
       grapejsEditor?.destroy();
@@ -89,13 +52,21 @@ const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
 
   useEffect(() => {
     if (!grapejsEditor || !page || !editorInitialized) return;
-    const savedData = JSON.parse(page?.data ?? '');
 
-    if (savedData) {
-      grapejsEditor?.setComponents(savedData.components);
-      grapejsEditor?.setStyle(savedData.style);
+    try {
+      const savedData = JSON.parse(page?.data ?? '');
+
+      if (savedData?.components?.length || savedData?.style?.length) {
+        grapejsEditor?.setComponents(savedData.components);
+        grapejsEditor?.setStyle(savedData.style);
+      } else {
+        togglePlaceholder();
+      }
+    } catch (error) {
+      console.error(error);
+      togglePlaceholder();
     }
-  }, [page, editorInitialized]);
+  }, [page, editorInitialized, isFetchingPage]);
 
   const { mutate: updatePage } = useMutationUpdatePage({
     onSuccess: () => console.log('saved'),
@@ -107,7 +78,6 @@ const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
       const updatedPage = { ...page, data: JSON.stringify(debouncedCanvasData) };
 
       updatePage(updatedPage);
-      //   console.log({ updatePage });
     }
   }, [debouncedCanvasData, page, updatePage]);
 };
@@ -120,19 +90,17 @@ const togglePlaceholder = () => {
   const canvasBody = grapejsEditor.Canvas.getBody();
 
   // Check if the editor has any components
+  const placeholder = canvasBody?.querySelector('#gjs-placeholder');
+
   if (!grapejsEditor.getComponents().length) {
     // Append placeholder to the canvas body if not already added
-    if (!canvasBody?.querySelector('#gjs-placeholder')) {
-      console.log('no components');
-
+    if (!placeholder) {
       const placeholderHtml = ReactDOMServer.renderToStaticMarkup(CanvasPlaceholder());
       const placeholderDiv = document.createElement('div');
       placeholderDiv.innerHTML = placeholderHtml;
       canvasBody.append(placeholderDiv.firstChild!);
     }
   } else {
-    // Remove the placeholder if the editor has components
-    const placeholder = canvasBody.querySelector('#gjs-placeholder');
     if (placeholder) placeholder.remove();
   }
 };

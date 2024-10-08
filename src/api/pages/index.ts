@@ -20,8 +20,6 @@ export const getPages = ({ filters }: GetPagesRequest) => {
 
 export const getPage = async ({ id }: GetPageRequest): Promise<Page | null> => {
   const pages = await db.pages.filter((page) => page.id === id).toArray();
-  console.log({ pages });
-
   return pages.length ? pages[0] : null;
 };
 
