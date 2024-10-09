@@ -14,15 +14,21 @@ const Label = () => {
   );
 };
 
-const Content = () => {
-  return <div className={'gjs-block-divider'}></div>;
-};
-
 const divider = createBlock({
   id: 'divider',
   label: <Label />,
-  content: <Content />,
-  attributes: { class: 'gjs-block-test' },
+  content: {
+    tagName: 'div',
+    type: 'divider',
+    content: '',
+    style: {
+      'background-color': '#868b99',
+      height: '1px',
+      width: '100%',
+      margin: '16px 0px 16px 0px',
+      opacity: '.7',
+    },
+  },
 });
 
 export default divider;

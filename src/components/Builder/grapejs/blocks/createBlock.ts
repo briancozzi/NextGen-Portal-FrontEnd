@@ -5,7 +5,8 @@ const createBlock = (block: Block) => {
   return {
     ...block,
     label: ReactDOMServer.renderToStaticMarkup(block.label),
-    content: ReactDOMServer.renderToStaticMarkup(block.content),
+    content:
+      'tagName' in block.content ? block.content : ReactDOMServer.renderToStaticMarkup(block.content as JSX.Element),
   };
 };
 

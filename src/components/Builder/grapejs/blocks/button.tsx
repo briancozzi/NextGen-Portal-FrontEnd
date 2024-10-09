@@ -27,14 +27,22 @@ const Label = () => {
   );
 };
 
-const Content = () => {
-  return <button>Button</button>;
-};
-
 const button = createBlock({
   id: 'button',
   label: <Label />,
-  content: <Content />,
+  content: {
+    tagName: 'button',
+    type: 'Button',
+    content: 'Button',
+    style: {
+      'background-color': '#e42b24',
+      'min-width': '100px',
+      color: 'white',
+      border: 'none',
+      'border-radius': '20px',
+      padding: '12px',
+    },
+  },
   attributes: { class: 'gjs-block-button' },
 });
 
