@@ -13,14 +13,17 @@ const Label = () => {
   );
 };
 
-const Content = () => {
-  return <img />;
-};
-
 const image = createBlock({
   id: 'image',
   label: <Label />,
-  content: <Content />,
+  content: {
+    tagName: 'img',
+    type: 'image',
+    style: {
+      position: 'absolute',
+    },
+    droppable: false,
+  },
   attributes: {
     class: 'gjs-block-image',
     src: imgSrc,

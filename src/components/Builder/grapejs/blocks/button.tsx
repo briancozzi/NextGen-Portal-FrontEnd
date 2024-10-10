@@ -35,6 +35,7 @@ const button = createBlock({
     type: 'Button',
     content: 'Button',
     style: {
+      position: 'absolute',
       'background-color': '#e42b24',
       'min-width': '100px',
       color: 'white',
@@ -42,6 +43,8 @@ const button = createBlock({
       'border-radius': '20px',
       padding: '12px',
     },
+    resizable: true,
+    droppable: false,
   },
   attributes: { class: 'gjs-block-button' },
 });

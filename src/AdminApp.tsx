@@ -25,7 +25,7 @@ function AdminApp() {
         {
           label: 'Manage Pages',
           path: '/admin/pages',
-          activePaths: ['^/admin/pages$', '^/admin/pages/\\d+(/edit)?$', '^/builder/\\d+(/edit)?$'],
+          activePaths: ['^/admin/pages$', '^/admin/pages/\\d+(/edit)?$', '^/admin/builder/\\d+(/edit)?$'],
         },
         { label: 'User Dashboards', path: '/admin/user_dashboards', activePaths: ['^/admin/user_dashboards$'] },
       ],

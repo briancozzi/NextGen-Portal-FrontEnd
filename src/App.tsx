@@ -108,7 +108,10 @@ function App() {
     <Flex width={'100%'} height={'100vh'} direction={'row'}>
       <Sidebar menus={menus} theme={'dark'} additionalContent={<AdditionalContent />} />
       <Flex direction={'column'} flexGrow={'1'}>
-        <Topbar label={typeof activeMenu?.label === 'string' ? activeMenu?.label : activeMenu?.name} />
+        <Topbar
+          label={typeof activeMenu?.label === 'string' ? activeMenu?.label : activeMenu?.name}
+          canSwitchOrg={true}
+        />
         <Flex flexGrow={'1'} height={'calc(100% - 82px)'} overflow={'auto'} style={{ backgroundColor: '#FAFAFA' }}>
           <Outlet />
         </Flex>

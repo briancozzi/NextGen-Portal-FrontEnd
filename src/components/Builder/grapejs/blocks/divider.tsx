@@ -22,12 +22,15 @@ const divider = createBlock({
     type: 'divider',
     content: '',
     style: {
+      position: 'absolute',
       'background-color': '#868b99',
       height: '1px',
       width: '100%',
       margin: '16px 0px 16px 0px',
       opacity: '.7',
     },
+    resizable: true,
+    droppable: false,
   },
 });
 

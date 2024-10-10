@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './styles.css';
 
 const PanelRight = () => {
-  const [isStyleOpen, setIsStyleOpen] = useState(false);
+  const [isStyleOpen, setIsStyleOpen] = useState(true);
 
   return (
     <div className='panel__right gjs-one-bg'>

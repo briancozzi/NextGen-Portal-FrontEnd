@@ -8,23 +8,35 @@ import { useState } from 'react';
 interface Props {
   imgSrc?: string;
   fallback: string;
+  canSwitchOrg?: boolean;
 }
 
-const Avatar = ({ imgSrc, fallback }: Props) => {
+const Avatar = ({ imgSrc, fallback, canSwitchOrg }: Props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <>
       <Popover.Root>
-        <Popover.Trigger>
-          <RadixAvatar
-            className={'NextGen-ProfileContainer'}
-            height={'40px'}
-            width={'40px'}
-            style={{ border: '2px solid #D8D8FE' }}
-            src={imgSrc}
-            fallback={fallback ?? 'A'}
-          />
-        </Popover.Trigger>
+        {canSwitchOrg ? (
+          <Popover.Trigger>
+            <RadixAvatar
+              className={'NextGen-ProfileContainer'}
+              height={'40px'}
+              width={'40px'}
+              style={{ border: '2px solid #D8D8FE' }}
+              src={imgSrc}
+              fallback={fallback ?? 'A'}
+            />
+          </Popover.Trigger>
+        ) : (
+          <Flex height={'40px'} width={'40px'}>
+            <RadixAvatar
+              className={'NextGen-ProfileContainer'}
+              style={{ border: '2px solid #D8D8FE' }}
+              src={imgSrc}
+              fallback={fallback ?? 'A'}
+            />
+          </Flex>
+        )}
         <Popover.Anchor />
         <Popover.Portal>
           <Popover.Content style={{ marginTop: '8px' }} align={'end'}>

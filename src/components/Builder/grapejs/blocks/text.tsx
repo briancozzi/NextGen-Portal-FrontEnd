@@ -10,14 +10,18 @@ const Label = () => {
   );
 };
 
-const Content = () => {
-  return <span>This is a simple Text</span>;
-};
-
 const text = createBlock({
   id: 'text',
   label: <Label />,
-  content: <Content />,
+  content: {
+    tagName: 'p',
+    type: 'Paragraph',
+    content: 'This is a paragraph',
+    style: {
+      position: 'absolute',
+    },
+    droppable: false,
+  },
   attributes: { class: 'gjs-block-text' },
 });
 

@@ -53,9 +53,9 @@ const initialConfig = {
   layerManager: {
     appendTo: '.layers-container', // Specify the container for the Layer Manager
   },
-  selectorManager: {
-    appendTo: '.selector-container',
-  },
+  // selectorManager: {
+  //   appendTo: '.selector-container',
+  // },
   styleManager: {
     appendTo: '.styles-container',
     sectors: [
@@ -64,6 +64,13 @@ const initialConfig = {
         open: true,
         // Use built-in properties
         buildProps: ['width', 'min-width', 'height', 'min-height', 'padding', 'margin', 'border-radius'],
+        // Use `properties` to define/override single property
+      },
+      {
+        name: 'Typography',
+        open: false,
+        // Use built-in properties
+        buildProps: ['font-size', 'color'],
         // Use `properties` to define/override single property
       },
       {
@@ -86,24 +93,24 @@ const initialConfig = {
           },
         ],
       },
-      {
-        name: 'Positioning',
-        open: true,
-        buildProps: ['position', 'top', 'left', 'right', 'bottom', 'z-index'],
-        properties: [
-          {
-            property: 'position',
-            type: 'select',
-            defaults: 'absolute',
-            options: [
-              { value: 'static', name: 'Static' },
-              { value: 'relative', name: 'Relative' },
-              { value: 'absolute', name: 'Absolute' },
-              { value: 'fixed', name: 'Fixed' },
-            ],
-          },
-        ],
-      },
+      // {
+      //   name: 'Positioning',
+      //   open: true,
+      //   buildProps: ['position', 'top', 'left', 'right', 'bottom', 'z-index'],
+      //   properties: [
+      //     {
+      //       property: 'position',
+      //       type: 'select',
+      //       defaults: 'absolute',
+      //       options: [
+      //         { value: 'static', name: 'Static' },
+      //         { value: 'relative', name: 'Relative' },
+      //         { value: 'absolute', name: 'Absolute' },
+      //         { value: 'fixed', name: 'Fixed' },
+      //       ],
+      //     },
+      //   ],
+      // },
     ],
   },
 };

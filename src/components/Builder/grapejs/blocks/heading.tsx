@@ -10,15 +10,19 @@ const Label = () => {
   );
 };
 
-const Content = () => {
-  return <h1>This is a simple title</h1>;
-};
-
 const heading = createBlock({
   id: 'heading',
   label: <Label />,
-  content: <Content />,
-  attributes: { class: 'gjs-block-section' },
+  content: {
+    tagName: 'h1',
+    type: 'Heading',
+    content: 'This is a Title',
+    style: {
+      position: 'absolute',
+    },
+    resizable: true,
+    droppable: false,
+  },
 });
 
 export default heading;

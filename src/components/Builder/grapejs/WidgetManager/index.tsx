@@ -21,7 +21,7 @@ const WidgetManager = () => {
             </Text>
           )}
           <Button
-            style={{ backgroundColor: 'white', borderRadius: '100%', width: '32px', padding: '0px' }}
+            style={{ backgroundColor: 'white', borderRadius: '100%', width: '32px', padding: '0px', border: '0px' }}
             onClick={toggleWidget}
           >
             {isWidgetOpen ? <IconCross /> : <IconPlus />}
