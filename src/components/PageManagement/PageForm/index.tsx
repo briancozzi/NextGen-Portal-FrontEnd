@@ -63,21 +63,21 @@ const PageForm = ({ page }: Props) => {
   return (
     <Flex p={'4'} width={'100%'} direction={'column'} gap={'6'} maxWidth={'1000px'}>
       <Flex width={'80%'} gap={'4'} direction={'column'}>
-        <FormRow label={'name'} errorMessage={formState.errors.name?.message}>
+        <FormRow label={'Name'} errorMessage={formState.errors.name?.message}>
           <Controller
             control={control}
             name={'name'}
             render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
           />
         </FormRow>
-        <FormRow label={'description'} errorMessage={formState.errors.description?.message}>
+        <FormRow label={'Description'} errorMessage={formState.errors.description?.message}>
           <Controller
             control={control}
             name={'description'}
             render={({ field }) => <TextField value={field.value} onChange={field.onChange} />}
           />
         </FormRow>
-        <FormRow label={'slug'} errorMessage={formState.errors.slug?.message}>
+        <FormRow label={'Slug'} errorMessage={formState.errors.slug?.message}>
           <Controller
             control={control}
             name={'slug'}
