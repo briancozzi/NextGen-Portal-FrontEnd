@@ -55,7 +55,13 @@ const SidebarItem = ({ menuItem, theme = 'dark' }: Props) => {
           </Flex>
         )}
         <Flex justify={'start'} width={'100%'} align={'center'}>
-          {typeof menuItem.label === 'string' ? <Text size={'2'}>{menuItem.label}</Text> : menuItem.label}
+          {typeof menuItem.label === 'string' ? (
+            <Text size={'2'} weight={'medium'}>
+              {menuItem.label}
+            </Text>
+          ) : (
+            menuItem.label
+          )}
         </Flex>
         <Box
           style={{
@@ -93,7 +99,13 @@ const SidebarItem = ({ menuItem, theme = 'dark' }: Props) => {
                 : 'none',
             }}
           >
-            {typeof children.label === 'string' ? <Text size={'2'}>{children.label}</Text> : children.label}
+            {typeof children.label === 'string' ? (
+              <Text size={'2'} weight={'medium'}>
+                {children.label}
+              </Text>
+            ) : (
+              children.label
+            )}
           </Flex>
         ))}
       </Flex>
