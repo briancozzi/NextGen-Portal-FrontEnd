@@ -2,21 +2,26 @@ import { Box, Flex, Text } from '@radix-ui/themes';
 import { ReactNode, useState } from 'react';
 import { IconArrowCircle } from '@icons';
 import { useLocation, useNavigate } from 'react-router-dom';
+import '../styles.css';
+import { Theme } from '@components/common/types';
 
 interface Props {
   menuItem: SidebarMenu;
+  theme?: Theme;
 }
 
 export interface SidebarMenu {
   icon?: ReactNode;
-  label: string;
+  name?: string;
+  label: string | ReactNode;
   children?: Array<SidebarMenu>;
   onClick?: () => void;
   path?: string;
   activePaths?: Array<string>;
+  backgroundColor?: string;
 }
 
-const SidebarItem = ({ menuItem }: Props) => {
+const SidebarItem = ({ menuItem, theme = 'dark' }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isActive =
@@ -31,21 +36,32 @@ const SidebarItem = ({ menuItem }: Props) => {
   return (
     <Flex direction={'column'}>
       <Flex
-        gap={'15px'}
+        className={`NextGen-SidebarItemContainer ${isActive ? 'NextGen-SidebarItemContainer--active' : ''}`}
+        gap={'4px'}
         pl={'24px'}
         pr={'11px'}
         py={'9px'}
         style={{
           cursor: 'pointer',
           borderRight: `4px ${isActive ? 'var(--brand-color)' : 'transparent'} solid`,
-          backgroundColor: isActive ? '#FFF' : 'unset',
+          backgroundColor: menuItem.backgroundColor && !isActive ? menuItem.backgroundColor : '',
         }}
         onClick={() => (menuItem?.path ? navigate(menuItem.path) : toggleOpen())}
-        justify={'start'}
+        justify={'between'}
       >
-        <Flex width={'24px'}>{menuItem.icon}</Flex>
-        <Flex justify={'start'} width={'calc(100% - 48px)'} align={'center'}>
-          <Text size={'2'}>{menuItem.label}</Text>
+        {menuItem.icon && (
+          <Flex width={'24px'} mr={'19px'}>
+            {menuItem.icon}
+          </Flex>
+        )}
+        <Flex justify={'start'} width={'100%'} align={'center'}>
+          {typeof menuItem.label === 'string' ? (
+            <Text size={'2'} weight={'medium'}>
+              {menuItem.label}
+            </Text>
+          ) : (
+            menuItem.label
+          )}
         </Flex>
         <Box
           style={{
@@ -56,7 +72,7 @@ const SidebarItem = ({ menuItem }: Props) => {
           height={'24px'}
           width={'24px'}
         >
-          {menuItem.children && <IconArrowCircle />}
+          {menuItem.children && <IconArrowCircle color={theme === 'light' ? '#5A5A5A' : '#D9D9D9'} />}
         </Box>
       </Flex>
       <Flex
@@ -67,8 +83,13 @@ const SidebarItem = ({ menuItem }: Props) => {
       >
         {menuItem.children?.map((children, index) => (
           <Flex
+            className={`NextGen-SidebarItemChildContainer ${
+              children?.activePaths?.some((path) => new RegExp(path).test(location.pathname))
+                ? 'NextGen-SidebarItemChildContainer--active'
+                : ''
+            }`}
             key={index}
-            pl={'61px'}
+            pl={menuItem.icon ? '71px' : '23px'}
             py={'9px'}
             onClick={() => children?.path && navigate(children.path)}
             style={{
@@ -76,10 +97,15 @@ const SidebarItem = ({ menuItem }: Props) => {
               borderRight: children?.activePaths?.some((path) => new RegExp(path).test(location.pathname))
                 ? '4px red solid'
                 : 'none',
-              borderBottom: '1px solid #ADADAD',
             }}
           >
-            <Text size={'2'}>{children.label}</Text>
+            {typeof children.label === 'string' ? (
+              <Text size={'2'} weight={'medium'}>
+                {children.label}
+              </Text>
+            ) : (
+              children.label
+            )}
           </Flex>
         ))}
       </Flex>

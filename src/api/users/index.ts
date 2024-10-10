@@ -6,9 +6,7 @@ export const getUsers = ({ filters }: GetUsersRequest) => {
 
   if (keyword?.length) {
     return db.users
-      .filter(
-        (user) => user.firstName.toLowerCase().startsWith(keyword) || user.lastName.toLowerCase().startsWith(keyword)
-      )
+      .filter((user) => user.firstName.toLowerCase().includes(keyword) || user.lastName.toLowerCase().includes(keyword))
       .toArray();
   }
 

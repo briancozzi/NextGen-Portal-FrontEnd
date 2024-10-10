@@ -6,8 +6,9 @@ interface Props {
 
 const PageTitle = ({ children }: Props) => {
   return (
-    <Box pb={'4'} width={'100%'} style={{ borderBottom: '1px solid black' }}>
+    <Box px={'24px'} pb={'4'} width={'100%'}>
       <Heading color={'red'}>{children}</Heading>
+      <Box mt={'4'} style={{ borderBottom: '1px solid black' }} />
     </Box>
   );
 };

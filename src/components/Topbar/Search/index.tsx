@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { TextField } from '@radix-ui/themes';
 import { IconSearch } from '@icons/index';
-import { useEffect, useState } from 'react';
+import './styles.css';
 
 interface Props {
   value?: string;
@@ -26,8 +27,9 @@ const Search = ({ value, onChange, placeholder = 'Search...', debounceTime = 300
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
       placeholder={placeholder}
+      className={'NextGen-TextField'}
     >
-      <TextField.Slot side={'right'}>
+      <TextField.Slot pl={'0'} pr={'0'} side={'right'}>
         <IconSearch />
       </TextField.Slot>
     </TextField.Root>

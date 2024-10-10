@@ -1,0 +1,36 @@
+.theme-light.NextGen-SidebarContainer {
+  background-color: #eeeeee;
+}
+
+.theme-light .NextGen-SidebarItemContainer.NextGen-SidebarItemContainer--active {
+  background-color: #fff;
+}
+
+.theme-light .NextGen-SidebarItemChildContainer {
+  border-bottom: 1px solid #adadad;
+  cursor: 'pointer';
+}
+
+.theme-light .NextGen-SidebarItemChildContainer--active {
+  border-right: 4px red solid;
+}
+
+.theme-dark.NextGen-SidebarContainer {
+  background-color: #000000;
+  color: #f1f1f1;
+}
+
+.theme-dark .NextGen-SidebarItemContainer.NextGen-SidebarItemContainer--active {
+  background-color: #242d35;
+  color: #f1f1f1;
+}
+
+.theme-dark .NextGen-SidebarItemChildContainer {
+  border-bottom: 1px solid #242d35;
+  cursor: 'pointer';
+}
+
+.theme-dark .NextGen-SidebarItemChildContainer--active {
+  border-right: 4px red solid;
+  background-color: #191f24;
+}
