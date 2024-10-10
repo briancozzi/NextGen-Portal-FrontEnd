@@ -19,9 +19,9 @@ const Topbar = ({ label = 'Admin Center', canSwitchOrg = false }: Props) => {
           <Text weight={'bold'} size={'6'}>
             {label}
           </Text>
-        </Flex>
-        <Flex align={'center'}>
-          <IconArrow />
+          <Flex align={'center'}>
+            <IconArrow />
+          </Flex>
         </Flex>
       </Flex>
       <Flex flexGrow={'1'} direction={'column'} maxWidth={'528px'}>
