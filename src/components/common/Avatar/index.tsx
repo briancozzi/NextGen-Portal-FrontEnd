@@ -19,10 +19,9 @@ const Avatar = ({ imgSrc, fallback, canSwitchOrg }: Props) => {
         {canSwitchOrg ? (
           <Popover.Trigger>
             <RadixAvatar
-              className={'NextGen-ProfileContainer'}
+              className={'NextGen-ProfileAvatar'}
               height={'40px'}
               width={'40px'}
-              style={{ border: '2px solid #D8D8FE' }}
               src={imgSrc}
               fallback={fallback ?? 'A'}
             />
@@ -44,7 +43,7 @@ const Avatar = ({ imgSrc, fallback, canSwitchOrg }: Props) => {
             <Flex className={'NextGen-ProfileMenuContainer '}>
               <Flex className={'NextGen-ProfileContainer'}>
                 <RadixAvatar
-                  style={{ border: '2px solid #D8D8FE', height: '40px', width: '40px', borderRadius: '100%' }}
+                  style={{ border: '2px solid white', height: '40px', width: '40px', borderRadius: '100%' }}
                   src={imgSrc}
                   fallback={fallback ?? 'A'}
                 />

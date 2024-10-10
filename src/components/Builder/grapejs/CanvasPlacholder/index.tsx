@@ -25,8 +25,9 @@ const CanvasPlaceholder = () => (
     >
       <span
         style={{
+          fontFamily: 'arial',
           fontSize: '18px',
-          color: '#333',
+          color: '#4F5B67',
           fontWeight: 'normal',
         }}
       >
@@ -35,8 +36,9 @@ const CanvasPlaceholder = () => (
 
       <span
         style={{
+          fontFamily: 'arial',
           fontSize: '18px',
-          color: '#333',
+          color: '#4F5B67',
           margin: '0 0 10px',
           fontWeight: 'normal',
         }}

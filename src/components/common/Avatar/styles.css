@@ -19,6 +19,15 @@
   cursor: pointer;
 }
 
+.NextGen-ProfileAvatar {
+  cursor: pointer;
+  border: 2px solid #d8d8fe;
+}
+
+button[data-state='open'] .NextGen-ProfileAvatar {
+  border: 2px solid #e42b24;
+}
+
 .NextGen-Text {
   font-family: arial;
 }
