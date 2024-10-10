@@ -13,3 +13,7 @@ export { default as IconCross } from './IconCross';
 export { default as IconPlus } from './IconPlus';
 export { default as IconHand } from './IconHand';
 export { default as IconDashboard } from './IconDashboard';
+export { default as IconOffice } from './IconOffice';
+export { default as IconPlusCircle } from './IconPlusCircle';
+export { default as IconSetting } from './IconSetting';
+export { default as IconSwitch } from './IconSwitch';

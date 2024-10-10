@@ -54,7 +54,7 @@ const PageForm = ({ page }: Props) => {
         ...data,
         userId: currentUser.id,
         data: '',
-        draftContent: '', // or draftMarkup / editorPreview
+        draftContent: '',
         publishedContent: '',
       });
     }
@@ -94,7 +94,11 @@ const PageForm = ({ page }: Props) => {
           {page?.id ? 'UPDATE PAGE' : 'CREATE PAGE'}
         </Button>
         {page?.id && (
-          <Button variant={'outline'} onClick={() => navigate(`/builder/${page.id}/edit`)}>
+          <Button
+            variant={'outline'}
+            className={'NextGen-outlineButton'}
+            onClick={() => navigate(`/admin/builder/${page.id}/edit`)}
+          >
             {'GO TO PAGE BUILDER'}
           </Button>
         )}

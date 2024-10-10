@@ -1,18 +1,24 @@
-import { Avatar, Flex, Text } from '@radix-ui/themes';
+import { Flex, Text } from '@radix-ui/themes';
 import Search from './Search';
 import Notification from './Notification';
 import { IconArrow } from '@icons';
 import { useCurrentUser } from '@components/common/hooks';
+import { Avatar } from '@components/common';
+interface Props {
+  label?: string;
+}
 
-const Topbar = () => {
+const Topbar = ({ label = 'Admin Center' }: Props) => {
   const user = useCurrentUser();
 
   return (
     <Flex width={'100%'} px={'36px'} py={'20px'} justify={'between'} align={'center'} gap={'3'}>
       <Flex gap={'2'}>
-        <Text weight={'bold'} size={'6'}>
-          {'Admin Center'}
-        </Text>
+        <Flex minWidth={'200px'}>
+          <Text weight={'bold'} size={'6'}>
+            {label}
+          </Text>
+        </Flex>
         <Flex align={'center'}>
           <IconArrow />
         </Flex>
@@ -22,7 +28,7 @@ const Topbar = () => {
       </Flex>
       <Flex gap={'2'}>
         <Notification />
-        <Avatar src={user?.photo} fallback={user?.middleInitial ?? 'A'} />
+        <Avatar imgSrc={user?.photo} fallback={user?.middleInitial ?? 'A'} />
       </Flex>
     </Flex>
   );

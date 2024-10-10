@@ -1,5 +1,5 @@
 import ReactDOMServer from 'react-dom/server';
-import grapesjs, { Components, CssRules, Editor } from 'grapesjs';
+import grapesjs, { Component, Components, CssRules, Editor } from 'grapesjs';
 import { useEffect, useState } from 'react';
 import initialConfig from './initialConfig';
 import CanvasPlaceholder from './CanvasPlacholder';
@@ -42,6 +42,50 @@ const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
         setCanvasData({ components, style });
       });
     }
+
+    grapejsEditor.on('component:selected', (component: Component) => {
+      const el = component.getEl() as HTMLElement;
+
+      let isDragging = false;
+      let startX: number, startY: number;
+      let initialTop: number, initialLeft: number;
+
+      const onMouseDown = (e: MouseEvent) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+
+        const computedStyle = window.getComputedStyle(el);
+        initialTop = parseInt(computedStyle.top, 10) || 0;
+        initialLeft = parseInt(computedStyle.left, 10) || 0;
+      };
+
+      const onMouseMove = (e: MouseEvent) => {
+        if (isDragging) {
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+
+          el.style.top = `${initialTop + dy}px`;
+          el.style.left = `${initialLeft + dx}px`;
+          component.addStyle({ top: el.style.top, left: el.style.left });
+        }
+      };
+
+      const onMouseUp = () => {
+        isDragging = false;
+      };
+
+      el.addEventListener('mousedown', onMouseDown);
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      // Clean up events on component deselection
+      grapejsEditor?.on('component:deselected', () => {
+        el.removeEventListener('mousedown', onMouseDown);
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      });
+    });
 
     return () => {
       grapejsEditor?.off('component:add component:remove', togglePlaceholder);

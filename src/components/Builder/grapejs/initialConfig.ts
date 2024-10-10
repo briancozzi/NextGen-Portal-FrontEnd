@@ -86,6 +86,24 @@ const initialConfig = {
           },
         ],
       },
+      {
+        name: 'Positioning',
+        open: true,
+        buildProps: ['position', 'top', 'left', 'right', 'bottom', 'z-index'],
+        properties: [
+          {
+            property: 'position',
+            type: 'select',
+            defaults: 'absolute',
+            options: [
+              { value: 'static', name: 'Static' },
+              { value: 'relative', name: 'Relative' },
+              { value: 'absolute', name: 'Absolute' },
+              { value: 'fixed', name: 'Fixed' },
+            ],
+          },
+        ],
+      },
     ],
   },
 };

@@ -71,3 +71,12 @@
 .gjs-clm-field select {
   color: #000;
 }
+
+.gjs-dashed * {
+  outline: none !important;
+  border: none !important;
+}
+
+.gjs-drop-notice {
+  display: none !important;
+}

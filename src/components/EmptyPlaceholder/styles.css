@@ -1,0 +1,52 @@
+/* styles.css */
+
+#NextGen-gjs-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 40px;
+  text-align: center;
+  width: max-content;
+  border-radius: 8px;
+}
+
+.NextGen-placeholder-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+
+.NextGen-text-primary {
+  font-size: 18px;
+  color: #333;
+  font-weight: normal;
+}
+
+.NextGen-text-secondary {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px;
+  font-weight: normal;
+}
+
+.NextGen-button {
+  background-color: var(--brand-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  width: max-content;
+  transition: all ease-in 0.3s;
+  border: 1px solid var(--brand-color);
+}
+
+.NextGen-button:hover {
+  background-color: white;
+  color: var(--brand-color);
+}

@@ -26,7 +26,7 @@ const PageRow = ({ page }: Props) => {
         <Text size={'2'}>{page.description}</Text>
       </Flex>
       <Flex gap={'5'}>
-        <Hoverable onClick={() => navigate(`/pages/${page.id}/edit`)}>
+        <Hoverable onClick={() => navigate(`/admin/pages/${page.id}/edit`)}>
           <IconPencil />
         </Hoverable>
       </Flex>
