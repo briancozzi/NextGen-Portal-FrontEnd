@@ -125,12 +125,12 @@
   padding-left: 0px;
   gap: 10px;
   border-bottom: 1px solid #d9d9d9;
-  border-right: 6px solid #d9d9d9;
+  /* border-right: 6px solid #d9d9d9; */
   cursor: pointer;
 }
 
 .NextGen-OrgItemContainer--active {
-  border-right: 6px solid #e64039;
+  /* border-right: 6px solid #e64039; */
 }
 
 .NextGen-OrgImage {
