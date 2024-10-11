@@ -1,11 +1,11 @@
-import { Flex, Text } from '@radix-ui/themes';
+import { Flex } from '@radix-ui/themes';
 import createBlock from './createBlock';
 
 const Label = () => {
   return (
-    <Flex direction={'column'} height={'110px'} width={'100px'}>
-      <Text style={{ fontSize: '60px' }}>{'T'}</Text>
-      <Text size={'3'}>{'Text'}</Text>
+    <Flex style={{ fontFamily: 'General Sans' }} direction={'column'} height={'110px'} width={'100px'}>
+      <div style={{ fontSize: '70px', height: '80px', fontWeight: '500' }}>{'T'}</div>
+      <div style={{ fontFamily: 'General Sans', fontSize: '16px', fontWeight: '500' }}>{'Text'}</div>
     </Flex>
   );
 };

@@ -1,4 +1,4 @@
-import { Flex, Text } from '@radix-ui/themes';
+import { Flex } from '@radix-ui/themes';
 import createBlock from './createBlock';
 
 const imgSrc =
@@ -7,8 +7,8 @@ const imgSrc =
 const Label = () => {
   return (
     <Flex direction={'column'} height={'110px'} width={'100px'} justify={'center'} align={'center'}>
-      <img src={imgSrc} height={'80%'} width={'80%'} />
-      <Text size={'3'}>{'Image'}</Text>
+      <img src={imgSrc} height={'70%'} width={'80%'} />
+      <div style={{ fontFamily: 'General Sans', fontSize: '16px', fontWeight: '500' }}>{'Image'}</div>
     </Flex>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@radix-ui/themes';
+import { Box, Flex } from '@radix-ui/themes';
 import createBlock from './createBlock';
 import IconHand from '@icons/IconHand';
 
@@ -15,14 +15,14 @@ const Label = () => {
       <Box position={'absolute'} top={'40%'}>
         <IconHand />
       </Box>
-      <Flex height={'100px'} width={'100%'} justify={'center'} align={'center'}>
+      <Flex height={'80px'} width={'100%'} justify={'center'} align={'center'}>
         <Flex
           height={'30px'}
           width={'80%'}
           style={{ backgroundColor: '#CED3DE', border: '2px solid #868B99', borderRadius: '20px' }}
         />
       </Flex>
-      <Text size={'3'}>{'Button'}</Text>
+      <div style={{ fontFamily: 'General Sans', fontSize: '16px', fontWeight: '500' }}>{'Button'}</div>
     </Flex>
   );
 };
