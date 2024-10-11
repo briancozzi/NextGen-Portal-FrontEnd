@@ -43,7 +43,7 @@ const Avatar = ({ imgSrc, fallback, canSwitchOrg }: Props) => {
             <Flex className={'NextGen-ProfileMenuContainer '}>
               <Flex className={'NextGen-ProfileContainer'}>
                 <RadixAvatar
-                  style={{ border: '2px solid white', height: '40px', width: '40px', borderRadius: '100%' }}
+                  style={{ border: '2px solid white', height: '36px', width: '36px', borderRadius: '100%' }}
                   src={imgSrc}
                   fallback={fallback ?? 'A'}
                 />

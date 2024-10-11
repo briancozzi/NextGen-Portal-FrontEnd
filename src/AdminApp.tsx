@@ -1,7 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import Navigation from '@components/Navigation';
-import { SidebarMenu } from '@components/Sidebar/SidebarItem';
+import SidebarItem, { SidebarMenu } from '@components/Sidebar/SidebarItem';
 import { IconData, IconFolder, IconSidebar, IconUserManagement, IconWidget } from './icons';
+import { Flex } from '@radix-ui/themes';
+import Sidebar from '@components/Sidebar';
+import Topbar from '@components/Topbar';
 
 function AdminApp() {
   const menus: Array<SidebarMenu> = [
@@ -50,12 +52,28 @@ function AdminApp() {
     },
   ];
 
-  return (
-    <div>
-      <Navigation menus={menus} theme={'light'}>
-        <Outlet />
-      </Navigation>
+  const AdditionalContent = () => (
+    <div style={{ backgroundColor: '#E0E0E0' }}>
+      <SidebarItem
+        menuItem={{
+          icon: <IconUserManagement />,
+          label: 'Back to Dashboard',
+          path: '/',
+        }}
+      />
     </div>
+  );
+
+  return (
+    <Flex width={'100%'} height={'100vh'} direction={'row'}>
+      <Sidebar menus={menus} additionalContent={<AdditionalContent />} />
+      <Flex direction={'column'} flexGrow={'1'}>
+        <Topbar />
+        <Flex flexGrow={'1'} height={'calc(100% - 82px)'} overflow={'auto'} style={{ backgroundColor: '#FAFAFA' }}>
+          <Outlet />
+        </Flex>
+      </Flex>
+    </Flex>
   );
 }
 

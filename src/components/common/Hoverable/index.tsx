@@ -1,4 +1,3 @@
-import { Button } from '@radix-ui/themes';
 import { ReactNode } from 'react';
 import './styles.css';
 
@@ -9,9 +8,9 @@ interface Props {
 
 const Hoverable = ({ onClick, children }: Props) => {
   return (
-    <Button className={'hoverable'} variant={'surface'} onClick={onClick}>
+    <button className={'NextGen-Hoverable'} onClick={onClick}>
       {children}
-    </Button>
+    </button>
   );
 };
 

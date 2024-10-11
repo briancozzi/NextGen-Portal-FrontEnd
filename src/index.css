@@ -14,6 +14,12 @@
   --red-9: var(--brand-color);
   --text-color-heading: var(--brand-color);
 
+  .rt-Button {
+    padding: 13px 20px;
+    height: 14px;
+    box-sizing: content-box;
+  }
+
   .rt-Button:not(.rt-variant-surface) {
     cursor: pointer;
     transition: all ease-in 0.3s;

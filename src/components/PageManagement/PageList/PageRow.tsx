@@ -20,9 +20,7 @@ const PageRow = ({ page }: Props) => {
       style={{ backgroundColor: '#FFFFFF', boxShadow: '0px -1px 0px 0px #F1F1F1 inset' }}
     >
       <Flex align={'center'} gap={'5'}>
-        <Text style={{ color: '#242D35' }} weight={'bold'}>
-          {page.name}
-        </Text>
+        <Text style={{ color: '#242D35', fontWeight: 600 }}>{page.name}</Text>
         <Text size={'2'}>{page.description}</Text>
       </Flex>
       <Flex gap={'5'}>

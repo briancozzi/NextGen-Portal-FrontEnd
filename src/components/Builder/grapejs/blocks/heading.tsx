@@ -3,9 +3,9 @@ import createBlock from './createBlock';
 
 const Label = () => {
   return (
-    <Flex direction={'column'} height={'110px'} width={'100px'}>
-      <Text style={{ fontSize: '60px' }}>{'H'}</Text>
-      <Text size={'3'}>{'Header'}</Text>
+    <Flex style={{ fontFamily: 'General Sans' }} direction={'column'} height={'100px'} width={'100px'}>
+      <div style={{ fontSize: '70px', height: '80px', fontWeight: '500' }}>{'H'}</div>
+      <div style={{ fontSize: '16px', fontWeight: '500' }}>{'Header'}</div>
     </Flex>
   );
 };
