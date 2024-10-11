@@ -38,7 +38,16 @@ function App() {
       {
         icon: <IconData color={'#E9EAEB'} />,
         label: 'Departments',
-        children: [{ label: 'Manage Departments', path: '/departments', activePaths: ['^/departments$'] }],
+        children: [
+          { label: 'Accounting', path: '/accounting', activePaths: ['^/accounting$'] },
+          { label: 'Admin Support', path: '/admin_support', activePaths: ['^/admin_support$'] },
+          { label: 'Client Revenue', path: '/client_revenue', activePaths: ['^/client_revenue$'] },
+          { label: 'Conflict', path: '/conflict', activePaths: ['^/conflict$'] },
+          { label: 'Human Resources', path: '/human_resources', activePaths: ['^/human_resources$'] },
+          { label: 'IT & Software', path: '/it_software', activePaths: ['^/it_software$'] },
+          { label: 'Legal Support', path: '/legal_support', activePaths: ['^/legal_support$'] },
+          { label: 'Marketing & BD', path: '/marketing_bd', activePaths: ['^/marketing_bd$'] },
+        ],
       },
       {
         icon: <IconOffice />,

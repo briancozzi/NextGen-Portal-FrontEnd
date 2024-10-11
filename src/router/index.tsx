@@ -110,6 +110,38 @@ const router = createBrowserRouter([
         path: '/my_links',
         element: <DummyPage />,
       },
+      {
+        path: '/accounting',
+        element: <DummyPage />,
+      },
+      {
+        path: '/admin_support',
+        element: <DummyPage />,
+      },
+      {
+        path: '/client_revenue',
+        element: <DummyPage />,
+      },
+      {
+        path: '/conflict',
+        element: <DummyPage />,
+      },
+      {
+        path: '/human_resources',
+        element: <DummyPage />,
+      },
+      {
+        path: '/it_software',
+        element: <DummyPage />,
+      },
+      {
+        path: '/legal_support',
+        element: <DummyPage />,
+      },
+      {
+        path: '/marketing_bd',
+        element: <DummyPage />,
+      },
     ],
   },
 ]);

@@ -4,7 +4,7 @@ import createBlock from './createBlock';
 const Label = () => {
   return (
     <Flex direction={'column'} height={'110px'} width={'100px'}>
-      <Flex height={'85px'} width={'100%'} justify={'center'} align={'center'} px={'3'}>
+      <Flex height={'84px'} width={'100%'} justify={'center'} align={'center'} px={'3'}>
         <Box width={'14px'} height={'14px'} style={{ borderRadius: '100%', border: '2px solid #868B99' }}></Box>
         <Box width={'60px'} height={'4px'} style={{ backgroundColor: '#868B99' }}></Box>
         <Box width={'14px'} height={'14px'} style={{ borderRadius: '100%', border: '2px solid #868B99' }}></Box>

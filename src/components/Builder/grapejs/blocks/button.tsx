@@ -12,13 +12,13 @@ const Label = () => {
       justify={'center'}
       align={'center'}
     >
-      <Box position={'absolute'} top={'40%'}>
+      <Box position={'absolute'} top={'44%'}>
         <IconHand />
       </Box>
-      <Flex height={'80px'} width={'100%'} justify={'center'} align={'center'}>
+      <Flex height={'78px'} width={'100%'} justify={'center'} align={'center'}>
         <Flex
-          height={'30px'}
-          width={'80%'}
+          height={'24px'}
+          width={'64px'}
           style={{ backgroundColor: '#CED3DE', border: '2px solid #868B99', borderRadius: '20px' }}
         />
       </Flex>

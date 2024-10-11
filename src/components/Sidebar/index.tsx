@@ -21,7 +21,7 @@ const Sidebar = ({ menus, additionalContent, theme = 'light' }: Props) => {
       <Flex justify={'center'} px={'24px'} py={'28px'} style={{ backgroundColor: 'var(--brand-color)' }}>
         <IconRimon />
       </Flex>
-      <Flex direction={'column'} justify={'between'} height={'100%'}>
+      <Flex direction={'column'} justify={'between'} height={'100%'} className={'NextGen-SideBarListContainer'}>
         <Flex direction={'column'} gap={'6px'} pt={'4'}>
           {menus.map((menu, index) => (
             <SidebarItem key={index} menuItem={menu} theme={theme} />
