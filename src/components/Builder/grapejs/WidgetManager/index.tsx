@@ -33,9 +33,7 @@ const WidgetManager = () => {
               overflow: 'hidden',
             }}
           >
-            <Text size={'4'} weight={'bold'} style={{ width: '270px' }}>
-              {'Widget Library'}
-            </Text>
+            <Text style={{ width: '270px', fontSize: '22px', fontWeight: 500 }}>{'Widget Library'}</Text>
           </div>
           <button
             style={{
