@@ -43,6 +43,7 @@ const useGrapejs = (page?: Page | null, isFetchingPage?: boolean) => {
       });
     }
 
+    // This code allows widgets or blocks to be freely moved around the canvas
     grapejsEditor.on('component:selected', (component: Component) => {
       const el = component.getEl() as HTMLElement;
 
