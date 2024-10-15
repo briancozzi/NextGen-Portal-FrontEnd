@@ -1,4 +1,4 @@
-@import './general-sans.css';
+@import './fonts.css';
 
 * {
   box-sizing: border-box;
@@ -15,7 +15,32 @@
   --text-color-heading: var(--brand-color);
 
   .rt-Button {
+    padding: 13px 20px;
+    height: 14px;
+    box-sizing: content-box;
+  }
+
+  .rt-Button:not(.rt-variant-surface) {
     cursor: pointer;
+    transition: all ease-in 0.3s;
+    border: 1px solid var(--brand-color);
+  }
+
+  .rt-Button:not(.rt-variant-surface):hover {
+    background-color: white;
+    color: var(--brand-color);
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .rt-Button:not(.rt-variant-surface):active {
+    background-color: var(--brand-color);
+    color: white;
+  }
+
+  .rt-Button.NextGen-outlineButton:not(.rt-variant-surface):hover {
+    background-color: var(--brand-color);
+    color: white;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
   }
 }
 

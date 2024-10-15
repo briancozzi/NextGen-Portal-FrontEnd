@@ -1,0 +1,96 @@
+.NextGen-SideBarListContainer {
+  overflow-y: auto;
+}
+
+.theme-light.NextGen-SidebarContainer {
+  background-color: #eeeeee;
+}
+
+.theme-light .NextGen-SidebarItemContainer.NextGen-SidebarItemContainer--active {
+  background-color: #fff;
+}
+
+.theme-light .NextGen-SidebarItemChildContainer {
+  border-bottom: 1px solid #adadad;
+  cursor: 'pointer';
+}
+
+.theme-light .NextGen-SidebarItemChildContainer--active {
+  border-right: 4px red solid;
+}
+
+.theme-dark.NextGen-SidebarContainer {
+  background-color: #000000;
+  color: #f1f1f1;
+}
+
+.theme-dark .NextGen-SidebarItemContainer.NextGen-SidebarItemContainer--active {
+  background-color: #242d35;
+  color: #f1f1f1;
+}
+
+.theme-dark .NextGen-SidebarItemChildContainer {
+  border-bottom: 1px solid #242d35;
+  cursor: 'pointer';
+}
+
+.theme-dark .NextGen-SidebarItemChildContainer--active {
+  border-right: 4px red solid;
+  background-color: #191f24;
+}
+
+/* Light Theme */
+.theme-light {
+  /* Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff; /* Light background for light theme */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #c0bebe;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #686767;
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #c0bebe #ffffff;
+  }
+}
+
+/* Dark Theme */
+.theme-dark {
+  /* Scrollbar Styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #000000; /* Dark background for dark theme */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #c0bebe;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #686767;
+  }
+
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #c0bebe #000000;
+  }
+}

@@ -20,8 +20,6 @@ const UserForm = ({ user }: Props) => {
   const { control, reset, formState } = methods;
   const { showToast } = useToast();
 
-  console.log({ erros: formState.errors });
-
   const resetForm = useCallback(() => {
     if (user) {
       reset(user);

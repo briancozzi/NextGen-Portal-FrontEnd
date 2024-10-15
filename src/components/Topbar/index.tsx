@@ -1,20 +1,27 @@
-import { Avatar, Flex, Text } from '@radix-ui/themes';
+import { Flex, Text } from '@radix-ui/themes';
 import Search from './Search';
 import Notification from './Notification';
 import { IconArrow } from '@icons';
-import { useQueryUser } from '@queries';
+import { useCurrentUser } from '@components/common/hooks';
+import { Avatar } from '@components/common';
+interface Props {
+  label?: string;
+  canSwitchOrg?: boolean;
+}
 
-const Topbar = () => {
-  const query = useQueryUser({ id: 1 });
+const Topbar = ({ label = 'Admin Center', canSwitchOrg = false }: Props) => {
+  const user = useCurrentUser();
 
   return (
     <Flex width={'100%'} px={'36px'} py={'20px'} justify={'between'} align={'center'} gap={'3'}>
       <Flex gap={'2'}>
-        <Text weight={'bold'} size={'6'}>
-          {'Admin Center'}
-        </Text>
-        <Flex align={'center'}>
-          <IconArrow />
+        <Flex minWidth={'200px'}>
+          <Text weight={'bold'} size={'6'}>
+            {label}
+          </Text>
+          <Flex align={'center'}>
+            <IconArrow />
+          </Flex>
         </Flex>
       </Flex>
       <Flex flexGrow={'1'} direction={'column'} maxWidth={'528px'}>
@@ -22,7 +29,7 @@ const Topbar = () => {
       </Flex>
       <Flex gap={'2'}>
         <Notification />
-        <Avatar src={query?.data?.photo} fallback={query?.data?.middleInitial ?? 'A'} />
+        <Avatar canSwitchOrg={canSwitchOrg} imgSrc={user?.photo} fallback={user?.middleInitial ?? 'A'} />
       </Flex>
     </Flex>
   );

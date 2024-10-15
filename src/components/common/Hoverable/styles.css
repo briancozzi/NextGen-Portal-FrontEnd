@@ -1,6 +1,8 @@
-.hoverable {
+.NextGen-Hoverable {
   border: 1px solid transparent;
   box-shadow: none;
   background-color: transparent;
   cursor: pointer;
+  width: min-content;
+  height: min-content;
 }

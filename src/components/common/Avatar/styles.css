@@ -1,0 +1,57 @@
+.NextGen-ProfileMenuContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 20px;
+  width: 328px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #8080801c;
+  background-color: white;
+}
+
+.NextGen-ProfileContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.NextGen-ProfileAvatar {
+  cursor: pointer;
+  border: 2px solid #d8d8fe;
+}
+
+button[data-state='open'] .NextGen-ProfileAvatar {
+  border: 2px solid #e42b24;
+}
+
+.NextGen-Text {
+  font-family: 'General Sans';
+  font-weight: 500;
+}
+
+.NextGen-separator {
+  height: 1px;
+  width: 100%;
+  background-color: #d9d9d9;
+  margin: 16px 0px 16px 0px;
+}
+
+.NextGen-SwitchOrgContainer {
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+  border-radius: 6px;
+}
+
+.NextGen-IconSwitchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+  background-color: black;
+}

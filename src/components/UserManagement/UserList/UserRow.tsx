@@ -42,9 +42,9 @@ const UserRow = ({ user }: Props) => {
         </Flex>
         <Text size={'2'}>{user.jobTitle}</Text>
       </Flex>
-      <Flex gap={'5'}>
-        <Hoverable onClick={() => navigate(`/users/${user.id}/edit`)}>
-          <IconPencil />
+      <Flex gap={'5'} align={'center'}>
+        <Hoverable onClick={() => navigate(`/admin/users/${user.id}/edit`)}>
+          <IconPencil height={24} width={24} />
         </Hoverable>
         <Switch checked={checked} onCheckedChange={handleCheckedChange} />
       </Flex>

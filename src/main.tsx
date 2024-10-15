@@ -1,7 +1,9 @@
 // import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import 'grapesjs/dist/css/grapes.min.css';
 import '@radix-ui/themes/styles.css';
 import './index.css';
+import './grapejs.css';
 import { Theme } from '@radix-ui/themes';
 import router from './router/index.tsx';
 import { RouterProvider } from 'react-router-dom';

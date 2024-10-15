@@ -2,11 +2,20 @@ import { db } from '../api/db';
 
 const seedData = async () => {
   const users = await db.users.toArray();
+  const pages = await db.pages.toArray();
 
-  if (users.length) {
-    return;
+  if (!users.length) {
+    seedUsers();
   }
 
+  if (!pages.length) {
+    seedPages();
+  }
+};
+
+export default seedData;
+
+const seedUsers = () => {
   db.users.bulkAdd([
     {
       username: 'tony_st',
@@ -126,4 +135,29 @@ const seedData = async () => {
   ]);
 };
 
-export default seedData;
+const seedPages = () => {
+  db.pages.bulkAdd([
+    {
+      name: 'Page One',
+      description: 'The first page',
+      slug: 'page_one',
+      userId: 1,
+      data: '',
+      draftContent: '',
+      publishedContent: '',
+      createdAt: '10/07/2024',
+      updatedAt: '10/07/2024',
+    },
+    {
+      name: 'Page Two',
+      description: 'The second page',
+      slug: 'page_two',
+      userId: 1,
+      data: '',
+      draftContent: '',
+      publishedContent: '',
+      createdAt: '10/07/2024',
+      updatedAt: '10/07/2024',
+    },
+  ]);
+};
