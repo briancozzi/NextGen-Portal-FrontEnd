@@ -20,7 +20,7 @@ const UserList = () => {
     <Flex direction={'column'} pt={'4'} px={'5'} gap={'4'}>
       <Search value={keyword} onChange={handleChangeKeyword} />
       <Flex direction={'column'} gap={'3'}>
-        {query.data?.map((user) => (
+        {query.data?.map((user: any) => (
           <UserRow user={user} />
         ))}
         {!query.data?.length && (

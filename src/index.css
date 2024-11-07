@@ -27,20 +27,37 @@
   }
 
   .rt-Button:not(.rt-variant-surface):hover {
-    background-color: white;
+    background-color: #FFFFFF;
     color: var(--brand-color);
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
   }
 
   .rt-Button:not(.rt-variant-surface):active {
     background-color: var(--brand-color);
-    color: white;
+    color: #FFFFFF;
   }
 
   .rt-Button.NextGen-outlineButton:not(.rt-variant-surface):hover {
     background-color: var(--brand-color);
-    color: white;
+    color: #FFFFFF;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .rt-Button.rt-variant-ghost {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    color: #0C1116;
+  }
+
+  .rt-Button.rt-variant-ghost:hover, .rt-Button.rt-variant-ghost.active {
+    background-color: var(--brand-color);
+    border: 1px solid var(--brand-color);
+    color: #FFFFFF;
+  }
+
+  .rt-Button.rt-variant-ghost:hover path, .rt-Button.rt-variant-ghost.active path {
+    transition: all ease-in 0.3s;
+    fill: #FFFFFF;
   }
 }
 

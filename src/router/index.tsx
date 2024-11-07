@@ -14,6 +14,7 @@ import UpdatePagePage from '@pages/pages/UpdatePagePage';
 import BuilderPage from '@pages/BuilderPage';
 import DashboardPage from '@pages/DashboardPage';
 import DummyPage from '@pages/DummyPage';
+import AttorneysPage from '@pages/firm-management/AttorneysPage';
 
 const router = createBrowserRouter([
   {
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/attorneys',
-        element: <DummyPage />,
+        element: <AttorneysPage />,
       },
       {
         path: '/support_staff',

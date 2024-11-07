@@ -1,16 +1,34 @@
 import { db } from '@api/db';
 import { GetUserRequest, GetUsersRequest, User } from '@api/users/types';
 
-export const getUsers = ({ filters }: GetUsersRequest) => {
+export const getUsers = async ({ filters, sort }: GetUsersRequest) => {
   const keyword = filters?.keyword ?? '';
-
+  let query = db.users as any;
   if (keyword?.length) {
-    return db.users
-      .filter((user) => user.firstName.toLowerCase().includes(keyword) || user.lastName.toLowerCase().includes(keyword))
-      .toArray();
+    query = query.filter(
+      (user: User) => user.firstName.toLowerCase().includes(keyword) || user.lastName.toLowerCase().includes(keyword)
+    );
   }
 
-  return db.users.toArray();
+  let results = await query.toArray();
+
+  if (filters?.title?.length && filters?.title !== 'All') {
+    results = results.filter((user: User) => user.jobTitle === filters.title);
+  }
+
+  if (filters?.office?.length && filters?.office !== 'All') {
+    results = results.filter((user: User) => user.office === filters.office);
+  }
+
+  if (sort) {
+    results?.sort((a: any, b: any) => {
+      const valueA = sort.key === 'name' ? `${a.firstName} ${a.lastName}` : a[sort.key];
+      const valueB = sort.key === 'name' ? `${b.firstName} ${b.lastName}` : b[sort.key];
+      return sort.direction === 'desc' ? valueB?.localeCompare(valueA) : valueA?.localeCompare(valueB);
+    });
+  }
+
+  return results;
 };
 
 export const getUser = async ({ id }: GetUserRequest): Promise<User | null> => {

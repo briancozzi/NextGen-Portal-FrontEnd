@@ -47,8 +47,9 @@ export interface GetUsersFiltersRequest {
   keyword?: string;
 }
 
-export interface GetUsersRequest {
-  filters: GetUsersFiltersRequest;
+export interface PaginationRequest {
+  page: number;
+  perPage: number;
 }
 
 export interface GetUserRequest {
@@ -56,3 +57,41 @@ export interface GetUserRequest {
 }
 
 export type GetUsersResponse = Array<User>;
+
+export interface PaginationParams {
+  page: number;
+  perPage: number;
+}
+
+export interface SortParams {
+  key: string;
+  direction: 'asc' | 'desc';
+}
+
+export interface FilterParams {
+  keyword?: string;
+  title?: string;
+  office?: string;
+  department?: string;
+  license?: string;
+  language?: string;
+  education?: string;
+}
+
+export interface GetUsersRequest {
+  filters?: FilterParams;
+  pagination?: PaginationParams;
+  sort?: SortParams;
+}
+
+export interface PaginationMetadata {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  itemsPerPage: number;
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  metadata: PaginationMetadata;
+}
