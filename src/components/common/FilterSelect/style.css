@@ -1,0 +1,217 @@
+/* Filters Container */
+.filters-container {
+  background: var(--gray-1);
+  border-radius: 25px;
+  border: 1px solid var(--brand-color);
+}
+
+.optional-select.has-value .rt-SelectIcon {
+  display: none !important;
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Radix Select Customization */
+.rt-SelectTrigger {
+  min-width: 200px;
+  height: 40px;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 32px;
+  padding: 12px 16px !important;
+  color: #242d35;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.rt-SelectTriggerInner {
+  width: 100%;
+}
+
+.rt-SelectTriggerInner span {
+  pointer-events: all !important;
+}
+
+.optional-select.has-value .rt-SelectTrigger,
+.rt-SelectTrigger:hover,
+.rt-SelectTrigger:focus {
+  outline: none;
+  border-color: var(--brand-color);
+}
+
+.select-value {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.select-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: #6c737f;
+  cursor: pointer;
+}
+
+.select-icon:hover {
+  color: #e31837;
+}
+
+/* Remove default arrow */
+.rt-SelectTrigger [data-radix-select-trigger-icon] {
+  display: none;
+}
+
+.rt-SelectTrigger[data-placeholder] {
+  color: #6c737f;
+}
+
+.rt-SelectContent {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-top: 4px;
+  box-shadow: 0px 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+  width: var(--radix-select-trigger-width);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.rt-SelectItem:last-child {
+  border-bottom: none;
+}
+
+.rt-SelectItem {
+  padding: 18px 20px;
+  color: #242d35;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  border-radius: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rt-SelectItem[data-highlighted] {
+  background-color: #f9fafb;
+  color: #242d35;
+}
+
+/* Advanced Filters Button */
+.list-header button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e31837;
+}
+
+.list-header button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Selected Filter Tag */
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #242d35;
+}
+
+.filter-tag button {
+  color: #6c737f;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.filter-tag button:hover {
+  color: #e31837;
+}
+
+/* Select All Option Styling */
+.rt-SelectItem[data-value='all'] {
+  font-weight: 500;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 4px;
+}
+
+/* Selected State */
+.rt-SelectItem[data-state='open'] {
+  background-color: #fee4e7;
+  color: #e31837;
+}
+
+.rt-SelectItem[data-state='open']:hover {
+  background-color: #fed7dc;
+}
+
+/* Selected State */
+.rt-SelectItem[data-state='checked'] {
+  background-color: #fee4e7;
+  color: #e31837;
+}
+
+.rt-SelectItem[data-state='checked']:hover {
+  background-color: #fed7dc;
+}
+
+/* Select Trigger Selected State */
+.rt-SelectTrigger[data-state='checked'] {
+  border-color: #e31837;
+  background-color: #fee4e7;
+  color: #e31837;
+}
+
+/* Select Trigger Selected State */
+.rt-SelectTrigger[data-state='open'] {
+  border-color: #e31837;
+  background-color: var(--brand-color);
+  color: #ffffff;
+}
+
+.rt-SelectTrigger[data-state='open'] * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Add styles for the positioning */
+.rt-SelectContent[data-side='bottom'] {
+  transform-origin: top;
+  animation: slideDown 0.1s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rt-SelectContent {
+  border-radius: 32px;
+}
+
+.rt-SelectViewport {
+  padding: 10px 0 !important;
+}
+
+.rt-SelectItemIndicator {
+  display: none;
+}

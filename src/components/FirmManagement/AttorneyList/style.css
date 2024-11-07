@@ -1,0 +1,80 @@
+/* List Container */
+.list-header .NextGen-TextField {
+  flex: 0.75;
+}
+
+/* Header Styling */
+.attorney-list-header {
+  background-color: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Common cell widths */
+.header-cell,
+.cell {
+  color: #6C737F;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Row Styling */
+.attorney-row {
+  background-color: #FFFFFF;
+  border-left: 1px solid #E5E7EB;
+  border-right: 1px solid #E5E7EB;
+  border-bottom: 1px solid #E5E7EB;
+  transition: background-color 0.2s ease;
+}
+
+.attorney-row:hover {
+  background-color: #F8F9FA;
+}
+
+/* Avatar styling */
+.avatar {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+}
+
+/* Name cell specific */
+.cell.name {
+  color: #242D35;
+  font-weight: 500;
+}
+
+/* Extension styling */
+.extension {
+  color: #E31837;
+}
+
+/* Actions styling */
+.actions {
+  width: 100px;
+  justify-content: flex-end;
+}
+
+.action-icon {
+  color: #E31837;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.action-icon:hover {
+  opacity: 0.8;
+}
+
+.header-cell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6C737F;
+  cursor: pointer;
+}
+
+/* Fixed widths for columns */
+.header-cell { flex: 1 }

@@ -1,0 +1,40 @@
+.sortable-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+  color: #6C737F;
+}
+
+.sortable-header:hover * {
+  color: #242D35;
+}
+
+
+.sortable-header.active {
+  color: #242D35;
+}
+
+.sort-icons {
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  justify-content: center;
+}
+
+.sort-icon {
+  width: 16px;
+  height: 16px;
+  color: #6C737F;
+}
+
+.sort-icon.default {
+  opacity: 0.3;
+}
+
+.sort-icon-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: -4px;
+} 
